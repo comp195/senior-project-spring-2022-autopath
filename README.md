@@ -33,7 +33,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">AutoPath</h3>
 
   <p align="center">
     project_description
@@ -84,7 +84,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+AutoPath is a web and VR application that visualizes pathfinding algorithms in action. At its core, a pathfinding algorithm seeks to find the shortest path between two points. It gives users the ability to choose from a randomly generated maze, maze presets, or simply build what they want. AutoPath offers algorithms such as Greedy Best-First Search, Dijkstra’s Algorithm, A* Search, Breadth-First Search, and Depth-First Search for users to choose from. The application also allows users to create an account to save their custom mazes for access later or sign in as a guest for quicker access.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -194,9 +194,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Bikram Chatterjee - b_chatterjee@u.pacific.edu
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Lait Vaidya - l_vaidya@u.pacific.edu
+
+Hung Le - h_le21@u.pacific.edu
+
+Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](https://github.com/comp195/senior-project-spring-2022-autopath/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,5 +230,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-shield]: https://img.shields.io/github/license/comp195/senior-project-spring-2022-autopath.svg?style=for-the-badge
 [license-url]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/bikramce
+[linkedin-url]: https://linkedin.com/in/bikramce https://www.linkedin.com/in/lalit-vaidya https://www.linkedin.com/in/hungle12
 [product-screenshot]: images/screenshot.png
