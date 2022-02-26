@@ -1,0 +1,14 @@
+{
+    "types": [
+      {"type": "feat", "section": "Features"},
+      {"type": "fix", "section": "Bug Fixes"},
+      {"type": "docs", "section": "Documents"},
+      {"type": "chore", "hidden": true},
+      {"type": "style", "hidden": true},
+      {"type": "refactor", "hidden": true},
+      {"type": "perf", "hidden": true},
+      {"type": "test", "hidden": true}
+    ],
+    "commitUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/commits/{{hash}}",
+    "compareUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/compare/{{previousTag}}...{{currentTag}}"
+  }
