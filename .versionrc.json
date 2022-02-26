@@ -10,7 +10,7 @@
       {"type": "test", "hidden": true}
     ],
     "commitUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/commits/{{hash}}",
-    "compareUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/compare/{{previousTag}}...{{currentTag}}"
+    "compareUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/compare/{{previousTag}}...{{currentTag}}",
     "issueUrlFormat": "https://github.com/comp195/senior-project-spring-2022-autopath/issues/{id}"
  
  }
