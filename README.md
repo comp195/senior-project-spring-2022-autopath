@@ -1,36 +1,15 @@
 <div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/comp195/senior-project-spring-2022-autopath/media/logo.png">
+    <img src="media/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">AutoPath</h3>
@@ -38,14 +17,8 @@
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/comp195/senior-project-spring-2022-autopath"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
   </p>
 </div>
 
@@ -194,11 +167,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Bikram Chatterjee - b_chatterjee@u.pacific.edu
+Bikram Chatterjee - b_chatterjee@u.pacific.edu [![LinkedIn][linkedin-shield]][linkedin-url-bikram]
 
-Lait Vaidya - l_vaidya@u.pacific.edu
-
-Hung Le - h_le21@u.pacific.edu
+Lait Vaidya - l_vaidya@u.pacific.edu [![LinkedIn][linkedin-shield]][linkedin-url-lalit]
+ 
+Hung Le - h_le21@u.pacific.edu [![LinkedIn][linkedin-shield]][linkedin-url-hung]
 
 Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](https://github.com/comp195/senior-project-spring-2022-autopath/)
 
@@ -230,5 +203,7 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 [license-shield]: https://img.shields.io/github/license/comp195/senior-project-spring-2022-autopath.svg?style=for-the-badge
 [license-url]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/bikramce https://www.linkedin.com/in/lalit-vaidya https://www.linkedin.com/in/hungle12
+[linkedin-url-bikram]: https://linkedin.com/in/bikramce
+[linkedin-url-lalit]: https://www.linkedin.com/in/lalit-vaidya
+[linkedin-url-hung]: https://www.linkedin.com/in/hungle12
 [product-screenshot]: images/screenshot.png
