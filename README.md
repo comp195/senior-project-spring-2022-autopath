@@ -27,6 +27,7 @@
   - [License](#license)
   - [Contact](#contact)
   - [Acknowledgments](#acknowledgments)
+  - [Special Notes](#special-notes)
 
 </details>
 
@@ -150,6 +151,9 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Special Notes -->
+## Special Notes
+* An Oculus Quest 2 will be used to test and use the VR application
                                 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
