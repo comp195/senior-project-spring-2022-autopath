@@ -3,23 +3,17 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Last Commit][last-commit-shield]][last-commit-url]
 
 
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/comp195/senior-project-spring-2022-autopath/media/logo.png">
-    <img src="media/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <img src="media/logo.png" alt="Logo" width="200" height="200">
 
-<h3 align="center">AutoPath</h3>
-
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/comp195/senior-project-spring-2022-autopath"><strong>Explore the docs »</strong></a>
-    <br />
-  </p>
+  # AutoPath
+  #### A Web and VR-based Pathfinding Visualization Tool
+  
+  <a href="https://github.com/comp195/senior-project-spring-2022-autopath/tree/master/documentation"><strong>Explore the docs »</strong></a>
+  
 </div>
 
 
@@ -32,7 +26,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-      </ul>
+      </ul>Cancel changes
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -41,9 +35,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -57,7 +49,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-AutoPath is a web and VR application that visualizes pathfinding algorithms in action. At its core, a pathfinding algorithm seeks to find the shortest path between two points. It gives users the ability to choose from a randomly generated maze, maze presets, or simply build what they want. AutoPath offers algorithms such as Greedy Best-First Search, Dijkstra’s Algorithm, A* Search, Breadth-First Search, and Depth-First Search for users to choose from. The application also allows users to create an account to save their custom mazes for access later or sign in as a guest for quicker access.
+AutoPath is a web and VR application that visualizes pathfinding algorithms in real time. At its core, AutoPath seeks to assist learners h the shortest path between two points. It gives users the ability to choose from a randomly generated maze, maze presets, or simply build what they want. AutoPath offers algorithms such as Greedy Best-First Search, Dijkstra’s Algorithm, A* Search, Breadth-First Search, and Depth-First Search for users to choose from. The application also allows users to create an account to save their custom mazes for access later or sign in as a guest for quicker access.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -65,14 +57,10 @@ AutoPath is a web and VR application that visualizes pathfinding algorithms in a
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
+* [JavaScript]()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,12 +69,10 @@ AutoPath is a web and VR application that visualizes pathfinding algorithms in a
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -94,65 +80,36 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/comp195/senior-project-spring-2022-autopath.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. Double click on index.html
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Web - Create an expandable 2D grid
+- [ ] Web - Add ability for users to add their own start and stop locations
+- [ ] Web - Add ability for users to add their nodes and walls
+- [ ] Web - Develop random maze generation
+- [ ] Web - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS to name a few
+- [ ] Web - Deploy website to AWS
+- [ ] VR - Design the virtual maze world
+- [ ] VR - Enable the ability for the user to roam around and interact with the world
+- [ ] VR - Random maze generation
+- [ ] VR - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS to name a few
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- LICENSE -->
@@ -182,11 +139,18 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Express - Node.js web application framework.] (Express - Node.js web application framework.)
+* [How to Deploy a Node.js application in AWS EC2 - AWS in Plain English. - Medium](https://aws.plainenglish.io/deploying-a-nodejs-application-in-aws-ec2-c1618b9
+b3874)
+* [XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@0.9/manua)
+* [virtualenv](https://virtualenv.pypa.io/en/latest/#using-virtualenv-without-bin-python)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<div align="center">
+    <br><br>
+    Made with ❤️ by i0nics
+</div>
 
 
 
@@ -200,6 +164,8 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 [stars-url]: https://github.com/comp195/senior-project-spring-2022-autopath/stargazers
 [issues-shield]: https://img.shields.io/github/issues/comp195/senior-project-spring-2022-autopath.svg?style=for-the-badge
 [issues-url]: https://github.com/comp195/senior-project-spring-2022-autopath/issues
+[last-commit-shield]: https://img.shields.io/github/last-commit/comp195/senior-project-spring-2022-autopath?style=for-the-badge
+[last-commit-url]: https://img.shields.io/github/last-commit/comp195/senior-project-spring-2022-autopath?style=for-the-badge
 [license-shield]: https://img.shields.io/github/license/comp195/senior-project-spring-2022-autopath.svg?style=for-the-badge
 [license-url]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
