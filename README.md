@@ -154,6 +154,8 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 <!-- Special Notes -->
 ## Special Notes
 * An Oculus Quest 2 will be used to test and use the VR application
+
+<p align="right">(<a href="#top">back to top</a>)</p>
                                 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -167,7 +169,6 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 * [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
 * [Research on Path-finding and Navigation Technology in VR Environment - P. Y. Yin and C. Yuan Li](https://ieeexplore.ieee.org/document/9262839)
 * [XR Interaction Toolkit Documentation](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@0.9/manua)
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
