@@ -1,6 +1,6 @@
 {
   "name": "autopath",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "postinstall": "husky install",
     "release": "standard-version",
