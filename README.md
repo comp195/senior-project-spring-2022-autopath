@@ -26,8 +26,8 @@
   - [Roadmap](#roadmap)
   - [License](#license)
   - [Contact](#contact)
-  - [Acknowledgments](#acknowledgments)
   - [Special Notes](#special-notes)
+  - [Acknowledgments](#acknowledgments)
 
 </details>
 
