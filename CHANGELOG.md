@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.1...v0.1.2) (2022-02-28)
+
+
+### Documents
+
+* updated changelog ([9fbf7da](https://github.com/comp195/senior-project-spring-2022-autopath/commits/9fbf7daf6e1c2f4e859106d2e499ab1514df7775))
+
 ### 0.1.1 (2022-02-27)
 
 
