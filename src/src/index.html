@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'
+		rel='stylesheet'>
+	<link rel='icon' href='images/logo.png' />
+	<link href='login.css' rel='stylesheet'>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+	<script src="js//Plugins/jquery.cookie-1.4.1.min.js"></script>
+	<!-- Redirects user to login page if user is not logged in -->
+	<script>
+		if (!!$.cookie('logged')) {
+			alert('You are already logged in! Redirecting to Home Page!');
+			document.location = 'home.html';
+		}
+	</script>
+	<script src='js/login.js' defer></script>
+	<title>AutoPath</title>
+</head>
+
+<body>
+	<header>
+		<img id='head_img' src='images/logo.png' alt='logo' height='22px'>
+	</header>
+	<hr>
+	<main>
+		<br><br><br><br><br><br> <p class='login'><br>Sign in to AutoPath</p> <div style='display: block; width: 328px; height: 84px'> <input type='text' placeholder='AutoPath ID' id='in_email' name='in_email' required> <input type='password' placeholder='Password' id='in_pass' name='in_pass' required> <input type='hidden' name='state' value='signin' /> <input type='image' id='submit_login' src='images/Login/s_button.png' height=25px width=25px alt='submit_login' /> </div> <p class='login' style='font-size: 14px'>Don't have an AutoPath ID?&nbsp;<a href='' onclick='return false;'><span id='create_one'>Create one!</span></a></p>
+	</main>
+	<footer draggable='false'>
+		<span class='foot'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class='foot'>Copyright
+			&copy; 2022 i0nics. All rights reserved.</span>
+	</footer>
+</body>
+</body>
+</html>
