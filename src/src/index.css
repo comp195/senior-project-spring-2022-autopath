@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: Montserrat, 'sf', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: sf;
+  src: url(Fonts/SFProDisplay-Light.ttf)
+}
