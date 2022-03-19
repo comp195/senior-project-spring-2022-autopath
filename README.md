@@ -110,11 +110,14 @@ An executable file for the AutoPath VR will be available soon!
 ## Roadmap
 
 - [x] Web - Login & Registration
-- [ ] Web - Create an expandable 2D grid
-- [ ] Web - Add ability for users to add their own start and stop locations
-- [ ] Web - Add ability for users to add their nodes and walls
+- [x] Web - Create a 2D grid
+- [x] Web - Add ability for users to add their own start and stop locations
+- [x] Web - Add ability for users to add their nodes and walls
 - [ ] Web - Develop random maze generation
-- [ ] Web - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS to name a few
+- [x] Web - Enable pathfinding visualization for Djikstra
+- [ ] Web - Enable pathfinding visualization for A*
+- [ ] Web - Enable pathfinding visualization for BFS
+- [ ] Web - Enable pathfinding visualization for DFS
 - [ ] Web - Deploy website to AWS
 - [ ] VR - Design the virtual maze world
 - [ ] VR - Enable the ability for the user to roam around and interact with the world
