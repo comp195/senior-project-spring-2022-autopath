@@ -1,146 +1,140 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AStarPathfinding
-{
-    class Location
+using UnityEngine;
+        
+class Tile
     {
-        public int X;
-        public int Y;
-        public int F;
-        public int G;
-        public int H;
-        public Location Parent;
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Cost { get; set; }
+        public int Distance { get; set; }
+        public int CostDistance => Cost + Distance;
+        public Tile Parent { get; set; }
+
+        //The distance is essentially the estimated distance, ignoring walls to our target. 
+        //So how many tiles left and right, up and down, ignoring walls, to get there. 
+        public void SetDistance(int targetX, int targetY)
+        {
+            this.Distance = Math.Abs(targetX - X) + Math.Abs(targetY - Y);
+        }
     }
 
-    class Program
+public class Astar : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
     {
-        static void Main(string[] args)
-        {
-            Console.Title = "A* Pathfinding";
-
-            // draw map
-
-            string[] map = new string[]
+        List<string> map = new List<string>
             {
-                "+------+",
-                "|      |",
-                "|A X   |",
-                "|XXX   |",
-                "|   X  |",
-                "| B    |",
-                "|      |",
-                "+------+",
+                "A          ",
+                "--| |------",
+                "           ",
+                "   |-----| ",
+                "   |     | ",
+                "---|     |B"
             };
 
-            foreach (var line in map)
-                Console.WriteLine(line);
+            var start = new Tile();
+            start.Y = map.FindIndex(x => x.Contains("A"));
+            start.X = map[start.Y].IndexOf("A");
 
-            // algorithm
 
-            Location current = null;
-            var start = new Location { X = 1, Y = 2 };
-            var target = new Location { X = 2, Y = 5 };
-            var openList = new List<Location>();
-            var closedList = new List<Location>();
-            int g = 0;
+            var finish = new Tile();
+            finish.Y = map.FindIndex(x => x.Contains("B"));
+            finish.X = map[finish.Y].IndexOf("B");
 
-            // start by adding the original position to the open list
-            openList.Add(start);
+            start.SetDistance(finish.X, finish.Y);
 
-            while (openList.Count > 0)
+            var activeTiles = new List<Tile>();
+            activeTiles.Add(start);
+            var visitedTiles = new List<Tile>();
+
+            while(activeTiles.Any())
             {
-                // get the square with the lowest F score
-                var lowest = openList.Min(l => l.F);
-                current = openList.First(l => l.F == lowest);
+                var checkTile = activeTiles.OrderBy(x => x.CostDistance).First();
 
-                // add the current square to the closed list
-                closedList.Add(current);
-
-                // show current square on the map
-                Console.SetCursorPosition(current.X, current.Y);
-                Console.Write('.');
-                Console.SetCursorPosition(current.X, current.Y);
-                System.Threading.Thread.Sleep(1000);
-
-                // remove it from the open list
-                openList.Remove(current);
-
-                // if we added the destination to the closed list, we've found a path
-                if (closedList.FirstOrDefault(l => l.X == target.X && l.Y == target.Y) != null)
-                    break;
-
-                var adjacentSquares = GetWalkableAdjacentSquares(current.X, current.Y, map);
-                g++;
-
-                foreach(var adjacentSquare in adjacentSquares)
+                if(checkTile.X == finish.X && checkTile.Y == finish.Y)
                 {
-                    // if this adjacent square is already in the closed list, ignore it
-                    if (closedList.FirstOrDefault(l => l.X == adjacentSquare.X
-                            && l.Y == adjacentSquare.Y) != null)
+                    //We found the destination and we can be sure (Because the the OrderBy above)
+                    //That it's the most low cost option. 
+                    var tile = checkTile;
+                    Debug.Log("Retracing steps backwards...");
+                    while(true)
+                    {
+                        Debug.Log($"{tile.X} : {tile.Y}");
+                        if(map[tile.Y][tile.X] == ' ')
+                        {
+                            var newMapRow = map[tile.Y].ToCharArray();
+                            newMapRow[tile.X] = '*';
+                            map[tile.Y] = new string(newMapRow);
+                        }
+                        tile = tile.Parent;
+                        if(tile == null)
+                        {
+                            Debug.Log("Map looks like :");
+                            map.ForEach(x => Debug.Log(x));
+                            Debug.Log("Done!");
+                            return;
+                        }
+                    }
+                }
+
+                visitedTiles.Add(checkTile);
+                activeTiles.Remove(checkTile);
+
+                var walkableTiles = GetWalkableTiles(map, checkTile, finish);
+
+                foreach(var walkableTile in walkableTiles)
+                {
+                    //We have already visited this tile so we don't need to do so again!
+                    if (visitedTiles.Any(x => x.X == walkableTile.X && x.Y == walkableTile.Y))
                         continue;
 
-                    // if it's not in the open list...
-                    if (openList.FirstOrDefault(l => l.X == adjacentSquare.X
-                            && l.Y == adjacentSquare.Y) == null)
+                    //It's already in the active list, but that's OK, maybe this new tile has a better value (e.g. We might zigzag earlier but this is now straighter). 
+                    if(activeTiles.Any(x => x.X == walkableTile.X && x.Y == walkableTile.Y))
                     {
-                        // compute its score, set the parent
-                        adjacentSquare.G = g;
-                        adjacentSquare.H = ComputeHScore(adjacentSquare.X, adjacentSquare.Y, target.X, target.Y);
-                        adjacentSquare.F = adjacentSquare.G + adjacentSquare.H;
-                        adjacentSquare.Parent = current;
-
-                        // and add it to the open list
-                        openList.Insert(0, adjacentSquare);
-                    }
-                    else
-                    {
-                        // test if using the current G score makes the adjacent square's F score
-                        // lower, if yes update the parent because it means it's a better path
-                        if (g + adjacentSquare.H < adjacentSquare.F)
+                        var existingTile = activeTiles.First(x => x.X == walkableTile.X && x.Y == walkableTile.Y);
+                        if(existingTile.CostDistance > checkTile.CostDistance)
                         {
-                            adjacentSquare.G = g;
-                            adjacentSquare.F = adjacentSquare.G + adjacentSquare.H;
-                            adjacentSquare.Parent = current;
+                            activeTiles.Remove(existingTile);
+                            activeTiles.Add(walkableTile);
                         }
+                    }else
+                    {
+                        //We've never seen this tile before so add it to the list. 
+                        activeTiles.Add(walkableTile);
                     }
                 }
             }
 
-            // assume path was found; let's show it
-            while (current != null)
-            {
-                Console.SetCursorPosition(current.X, current.Y);
-                Console.Write('_');
-                Console.SetCursorPosition(current.X, current.Y);
-                current = current.Parent;
-                System.Threading.Thread.Sleep(1000);
-            }
-
-            // end
-
-            Console.ReadLine();
-        }
-
-        static List<Location> GetWalkableAdjacentSquares(int x, int y, string[] map)
+            Debug.Log("No Path Found!");
+    }
+    private static List<Tile> GetWalkableTiles(List<string> map, Tile currentTile, Tile targetTile)
         {
-            var proposedLocations = new List<Location>()
+            var possibleTiles = new List<Tile>()
             {
-                new Location { X = x, Y = y - 1 },
-                new Location { X = x, Y = y + 1 },
-                new Location { X = x - 1, Y = y },
-                new Location { X = x + 1, Y = y },
+                new Tile { X = currentTile.X, Y = currentTile.Y - 1, Parent = currentTile, Cost = currentTile.Cost + 1 },
+                new Tile { X = currentTile.X, Y = currentTile.Y + 1, Parent = currentTile, Cost = currentTile.Cost + 1},
+                new Tile { X = currentTile.X - 1, Y = currentTile.Y, Parent = currentTile, Cost = currentTile.Cost + 1 },
+                new Tile { X = currentTile.X + 1, Y = currentTile.Y, Parent = currentTile, Cost = currentTile.Cost + 1 },
             };
 
-            return proposedLocations.Where(l => map[l.Y][l.X] == ' ' || map[l.Y][l.X] == 'B').ToList();
-        }
+            possibleTiles.ForEach(tile => tile.SetDistance(targetTile.X, targetTile.Y));
 
-        static int ComputeHScore(int x, int y, int targetX, int targetY)
-        {
-            return Math.Abs(targetX - x) + Math.Abs(targetY - y);
+            var maxX = map.First().Length - 1;
+            var maxY = map.Count - 1;
+
+            return possibleTiles
+                    .Where(tile => tile.X >= 0 && tile.X <= maxX)
+                    .Where(tile => tile.Y >= 0 && tile.Y <= maxY)
+                    .Where(tile => map[tile.Y][tile.X] == ' ' || map[tile.Y][tile.X] == 'B')
+                    .ToList();
         }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

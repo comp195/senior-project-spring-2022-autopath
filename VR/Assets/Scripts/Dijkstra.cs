@@ -1,12 +1,27 @@
-﻿
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-class GFG {
-
-	static int V = 9;
-	int minDistance(int[] dist,
-					bool[] sptSet)
-	{
+public class Dijkstra : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+      int[, ] graph = new int[, ] { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
+									{ 4, 0, 8, 0, 0, 0, 0, 11, 0 },
+									{ 0, 8, 0, 7, 0, 4, 0, 0, 2 },
+									{ 0, 0, 7, 0, 9, 14, 0, 0, 0 },
+									{ 0, 0, 0, 9, 0, 10, 0, 0, 0 },
+									{ 0, 0, 4, 14, 10, 0, 2, 0, 0 },
+									{ 0, 0, 0, 0, 0, 2, 0, 1, 6 },
+									{ 8, 11, 0, 0, 0, 0, 1, 0, 7 },
+									{ 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
+		Dijkstra t = new Dijkstra();
+		t.dijkstra(graph, 0);  
+    }
+    static int V = 9;
+    int minDistance(int[] dist, bool[] sptSet)
+    {
 		// Initialize min value
 		int min = int.MaxValue, min_index = -1;
 
@@ -21,10 +36,10 @@ class GFG {
 
 	void printSolution(int[] dist, int n)
 	{
-		Console.Write("Vertex	 Distance "
+		Debug.Log("Vertex	 Distance "
 					+ "from Source\n");
 		for (int i = 0; i < V; i++)
-			Console.Write(i + " \t\t " + dist[i] + "\n");
+			Debug.Log(i + " \t\t " + dist[i] + "\n");
 	}
 	void dijkstra(int[, ] graph, int src)
 	{
@@ -54,20 +69,9 @@ class GFG {
 		printSolution(dist, V);
 	}
 
-	public static void Main()
-	{
-		
-		int[, ] graph = new int[, ] { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
-									{ 4, 0, 8, 0, 0, 0, 0, 11, 0 },
-									{ 0, 8, 0, 7, 0, 4, 0, 0, 2 },
-									{ 0, 0, 7, 0, 9, 14, 0, 0, 0 },
-									{ 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-									{ 0, 0, 4, 14, 10, 0, 2, 0, 0 },
-									{ 0, 0, 0, 0, 0, 2, 0, 1, 6 },
-									{ 8, 11, 0, 0, 0, 0, 1, 0, 7 },
-									{ 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
-		GFG t = new GFG();
-		t.dijkstra(graph, 0);
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
-

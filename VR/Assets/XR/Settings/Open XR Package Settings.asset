@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8977618684351256897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: WebGL
+  m_EditorClassIdentifier: 
+  features: []
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
 --- !u!114 &-8892075362585524428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,10 +210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: Open XR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 0100000007000000
+  Keys: 01000000070000000d000000
   Values:
   - {fileID: 11865790006997933}
   - {fileID: -8892075362585524428}
+  - {fileID: -8977618684351256897}
 --- !u!114 &11865790006997933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +234,6 @@ MonoBehaviour:
   - {fileID: 6198314880931234397}
   - {fileID: 4921009638949176243}
   - {fileID: -612897452231880623}
-  - {fileID: -5367981065165667346}
   - {fileID: -3814631588274515887}
   - {fileID: 4683083836962107477}
   - {fileID: 1877884316162490288}
