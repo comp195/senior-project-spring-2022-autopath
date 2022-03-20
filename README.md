@@ -113,7 +113,7 @@ An executable file for the AutoPath VR will be available soon!
 - [x] Web - Create a 2D grid
 - [x] Web - Add ability for users to add their own start and stop locations
 - [x] Web - Add ability for users to add their nodes and walls
-- [ ] Web - Develop random maze generation
+- [x] Web - Develop random maze generation
 - [x] Web - Enable pathfinding visualization for Djikstra
 - [ ] Web - Enable pathfinding visualization for A*
 - [ ] Web - Enable pathfinding visualization for BFS
