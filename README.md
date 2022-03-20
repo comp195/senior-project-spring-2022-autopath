@@ -120,7 +120,7 @@ An executable file for the AutoPath VR will be available soon!
 - [ ] Web - Enable pathfinding visualization for DFS
 - [ ] Web - Deploy website to AWS
 - [ ] VR - Design the virtual maze world
-- [ ] VR - Enable the ability for the user to roam around and interact with the world
+- [x] VR - Enable the ability for the user to roam around and interact with the world
 - [ ] VR - Random maze generation
 - [ ] VR - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS
 
