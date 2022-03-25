@@ -16,7 +16,9 @@ public class MazeRender : MonoBehaviour
     void Start()
     {
         var maze = MazeGenerator.Generate(width, height);
+
         Draw(maze);
+        
     }
 
     private void Draw(WallState[,] maze)
