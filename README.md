@@ -6,6 +6,8 @@
 
   
   [![Contributors][contributors-shield]][contributors-url]
+  ![GitHub Top Language][shield-github-top-language]
+  ![GitHub Latest Release][shield-github-latest-release]
   [![Last Commit][last-commit-shield]][last-commit-url]
   [![Issues][issues-shield]][issues-url]
   [![MIT License][license-shield]][license-url]
@@ -217,5 +219,7 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 [product-screenshot]: images/screenshot.png
 [react-shield]: https://img.shields.io/badge/React-343434?style=for-the-badge&logo=react
 [react-url]: https://www.react.com
+[shield-github-latest-release]: https://img.shields.io/github/v/release/comp195/senior-project-spring-2022-autopath?include_prereleases&logo=github&style=for-the-badge
+[shield-github-top-language]: https://img.shields.io/github/languages/top/comp195/senior-project-spring-2022-autopath?logo=github&style=for-the-badge
 [unity-shield]: https://img.shields.io/badge/Unity-343434?style=for-the-badge&logo=unity
 [unity-url]: https://www.unity.com
