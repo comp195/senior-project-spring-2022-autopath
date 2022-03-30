@@ -117,10 +117,10 @@ An executable file for the AutoPath VR will be available soon!
 - [x] Web - Add ability for users to add their nodes and walls
 - [x] Web - Develop random maze generation
 - [x] Web - Enable pathfinding visualization for Djikstra
-- [ ] Web - Enable pathfinding visualization for A*
+- [x] Web - Enable pathfinding visualization for A*
 - [ ] Web - Enable pathfinding visualization for BFS
 - [ ] Web - Enable pathfinding visualization for DFS
-- [ ] Web - Deploy website to AWS
+- [x] Web - Deploy website to AWS
 - [ ] VR - Design the virtual maze world
 - [x] VR - Enable the ability for the user to roam around and interact with the world
 - [ ] VR - Random maze generation
