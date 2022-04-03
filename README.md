@@ -20,8 +20,9 @@
 <details id="table_of_contents">
   <summary>Table of Contents</summary>
 
-- [About The Project](#about-the-projec)
+  - [About The Project](#about-the-projec)
     - [Built With](#built-with)
+  - [Screenshots](#screenshots)
   - [Getting Started](#getting-started)
     - [Web](#web)
     - [VR](#vr)
@@ -70,7 +71,17 @@ AutoPath is a web and VR-based application that visualizes pathfinding algorithm
   
 </div>
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Screenshots -->
+## Screenshots
+<div align="center">
+  
+  ![demovr1][demovr1]
+  ![demovr2][demovr2]
+  ![demovr3][demovr3]
+  
+</div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -113,14 +124,16 @@ An executable file for the AutoPath VR will be available soon!
 
 - [x] Web - Login & Registration
 - [x] Web - Create a 2D grid
+- [ ] Web - Make 2D grid expandable 
 - [x] Web - Add ability for users to add their own start and stop locations
 - [x] Web - Add ability for users to add their nodes and walls
 - [x] Web - Develop random maze generation
 - [x] Web - Enable pathfinding visualization for Djikstra
 - [x] Web - Enable pathfinding visualization for A*
-- [ ] Web - Enable pathfinding visualization for BFS
-- [ ] Web - Enable pathfinding visualization for DFS
+- [x] Web - Enable pathfinding visualization for BFS
+- [x] Web - Enable pathfinding visualization for DFS
 - [x] Web - Deploy website to AWS
+- [ ] Web - Integrate Node.js in AWS
 - [ ] VR - Design the virtual maze world
 - [x] VR - Enable the ability for the user to roam around and interact with the world
 - [ ] VR - Random maze generation
@@ -190,6 +203,9 @@ Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](
 [css-shield]: https://img.shields.io/badge/CSS-6597CC?style=for-the-badge&logo=CSS
 [css-url]: https://www.w3schools.com/css/
 [demo]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/media/autopath-demo.gif
+[demovr1]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/media/vr_maze1.png
+[demovr2]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/media/vr_maze2.png
+[demovr3]: https://github.com/comp195/senior-project-spring-2022-autopath/blob/master/media/vr_maze3.png
 [express-shield]: https://img.shields.io/badge/Express-1D1F22?style=for-the-badge&logo=express
 [express-url]: https://expressjs.com
 [forks-shield]: https://img.shields.io/github/forks/comp195/senior-project-spring-2022-autopath.svg?style=for-the-badge
