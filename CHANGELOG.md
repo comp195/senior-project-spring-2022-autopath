@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.2...v0.1.3) (2022-04-03)
+
+
+### Features
+
+* A* script for 2D testing ([cf102ed](https://github.com/comp195/senior-project-spring-2022-autopath/commits/cf102ed1b6b5b0fdbb1806e0fbf5f5bd07881d01))
+* added home page that automatically creates a grid and added support for djikstra visualization ([0a2532c](https://github.com/comp195/senior-project-spring-2022-autopath/commits/0a2532c970d7a7ea363fd748685ad6f79ecfcc2e))
+* added images ([97b0515](https://github.com/comp195/senior-project-spring-2022-autopath/commits/97b0515d8814ce9cf8a6fcabb58f7a6a7702cc30))
+* added images for home page ([c3c17d0](https://github.com/comp195/senior-project-spring-2022-autopath/commits/c3c17d085d5c2ebe33027aa728b654669e39af27))
+* added node support ([6b5c4e3](https://github.com/comp195/senior-project-spring-2022-autopath/commits/6b5c4e368f11bfef58f986ef1472479c761ce5c3))
+* added relevant fonts ([7f338b4](https://github.com/comp195/senior-project-spring-2022-autopath/commits/7f338b463e7c12a7eb88c6bad7e93c817581e265))
+* added support for djiktra's algorithm ([329b654](https://github.com/comp195/senior-project-spring-2022-autopath/commits/329b6544bc3d20815e0bcac9a68ce481f7cbb991))
+* added vr images ([b21f57e](https://github.com/comp195/senior-project-spring-2022-autopath/commits/b21f57e247e70898afc16f9b41f988eb0e15911c))
+* Dijkstra script for 2D testing ([968e281](https://github.com/comp195/senior-project-spring-2022-autopath/commits/968e281afd4706331fee89dc1374e086f2cce347))
+* initialized react dir ([a1b7091](https://github.com/comp195/senior-project-spring-2022-autopath/commits/a1b70914c841581e5c23b6113e680c9f62962e86))
+
+
+### Bug Fixes
+
+* re-added images ([1b608fe](https://github.com/comp195/senior-project-spring-2022-autopath/commits/1b608fe48262f16df70e6a46e8ca8c4f5ece9244))
+* rearranged files ([5be8354](https://github.com/comp195/senior-project-spring-2022-autopath/commits/5be8354e39c4e265a69ca37cb12dd1acae19280c))
+
+
+### Documents
+
+* update readme ([aa5d268](https://github.com/comp195/senior-project-spring-2022-autopath/commits/aa5d2686d1f483d70236b2e64694cc82b322e8e6))
+* update readme ([24cfe35](https://github.com/comp195/senior-project-spring-2022-autopath/commits/24cfe35092f5c186d5d84fffaae00f5fd8e0c791))
+* update readme ([9ee2bf0](https://github.com/comp195/senior-project-spring-2022-autopath/commits/9ee2bf0cb7b3660cd1e2fdfbe93d9629709dff38))
+
 ### [0.1.2](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.1...v0.1.2) (2022-02-28)
 
 
