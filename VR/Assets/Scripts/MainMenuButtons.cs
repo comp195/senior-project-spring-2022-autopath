@@ -7,6 +7,7 @@ public class MainMenuButtons : MonoBehaviour
     public void StartClicked()
     {
         Debug.Log("start button clicked");
+        SceneManager.LoadScene(2);
     }
 
     public void AlgorClicked()
@@ -20,6 +21,13 @@ public class MainMenuButtons : MonoBehaviour
     {
         Debug.Log("settings Clicked");
     }
+
+    public void RunMazeClicked()
+    {
+        Debug.Log("Run Maze Clicked");
+        SceneManager.LoadScene(2);
+    }
+    
 }
 
 
