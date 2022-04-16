@@ -15,7 +15,7 @@ body {
 	color: white;
 	height: 100%;
 	margin: 0px;
-	min-height: 890px;
+	min-height: 300px;
 	min-width: 630px;
 }
 
@@ -27,15 +27,14 @@ header {
 	align-items: center
 }
 
-
 main {
 	align-items: center;
 	display: flex;
 	font-size: 50px;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 91.2%;
-
+	min-height: 52%;
+	margin-top: 20%;
 }
 
 .login {
@@ -74,17 +73,6 @@ footer {
 }
 
 #head_img:hover {
-	opacity: 100%
-}
-
-#faq_logo {
-	float: right;
-	left: -16px;
-	opacity: 70%;
-	position: relative;
-}
-
-#faq_logo:hover {
 	opacity: 100%
 }
 
@@ -338,6 +326,10 @@ footer {
 #submit_reg {
 	left: 10px;
 	position: relative;
+}
+
+#login {
+	margin-top: 10%
 }
 
 @font-face {
