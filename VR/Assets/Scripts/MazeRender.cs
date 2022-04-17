@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MazeRender : MonoBehaviour
 {
-    [SerializeField] [Range(1,50)] private int width = 10;
+    [SerializeField] [Range(1,50)] public int width = 10;
 
-    [SerializeField] [Range(1,50)] private int height = 10;
+    [SerializeField] [Range(1,50)] public int height = 10;
 
     [SerializeField] private Transform wallPrefab = null;
 
