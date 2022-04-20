@@ -25,8 +25,9 @@ public class MainMenuButtons : MonoBehaviour
     public void RunMazeClicked()
     {
         Debug.Log("Run Maze Clicked");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
+    
     
 }
 
