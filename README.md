@@ -107,9 +107,9 @@ Get a local copy up and running follow these simple example steps.
    npm install
    ```
    
-#### User Access
+#### Live Website
 
-A public link to the website will be published soon!
+Check out the website here: [autopath](https://github.com/comp195/senior-project-spring-2022-autopath/deployments/activity_log?environment=github-pages)
 <br><br>
 
 ### VR
