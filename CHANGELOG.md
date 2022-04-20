@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.4...v0.5.0) (2022-04-20)
+
+
+### Features
+
+* added all maze generation algos ([9022436](https://github.com/comp195/senior-project-spring-2022-autopath/commits/902243612ab0132a574f516d389a0a4e046013bc))
+* added all pathfinding algo logic ([a07164d](https://github.com/comp195/senior-project-spring-2022-autopath/commits/a07164deb5f6cf767a526cd7efd67bca082f5a26))
+* added astar visualization ([7a35370](https://github.com/comp195/senior-project-spring-2022-autopath/commits/7a35370dbe1b10462b6b94b035c7927ea3189620))
+* added maze visualization ([5fc6f60](https://github.com/comp195/senior-project-spring-2022-autopath/commits/5fc6f602b894469187b3bb7278848b41080b2a9b))
+* added visualization ([33b0213](https://github.com/comp195/senior-project-spring-2022-autopath/commits/33b0213c04a6b8ab7f27a27a7fb6ab61c70e04fe))
+* changed node color and added astar ([6fe63b2](https://github.com/comp195/senior-project-spring-2022-autopath/commits/6fe63b26a3e61dc5bb2bbd353f3958a6fd38097a))
+* restructured files ([6697aff](https://github.com/comp195/senior-project-spring-2022-autopath/commits/6697aff01df116089d9cd357008c6b131ee029b6))
+* update dependencies ([438ca68](https://github.com/comp195/senior-project-spring-2022-autopath/commits/438ca688678ac30b88637ed69d0ee333fb5982f1))
+
+
+### Bug Fixes
+
+* delete redundant files ([d460b3a](https://github.com/comp195/senior-project-spring-2022-autopath/commits/d460b3a0eb0bd724724b2c8094ad9f5a9975f250))
+* fixed grid sizing ([c4aee4b](https://github.com/comp195/senior-project-spring-2022-autopath/commits/c4aee4b25789fa1620b61167e93d7195ab043a47))
+
 ## [0.2.0](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.4...v0.2.0) (2022-04-20)
 
 
