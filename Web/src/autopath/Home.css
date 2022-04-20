@@ -15,7 +15,6 @@ html body {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, 2%);
-  margin: 0px;
   -moz-user-select: -moz-none;
   -khtml-user-select: none;
   -webkit-user-select: none;
