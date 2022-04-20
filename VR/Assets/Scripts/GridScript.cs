@@ -5,11 +5,11 @@ using UnityEngine;
 public class GridScript : MonoBehaviour
 {
     public LayerMask _obstacle;
+    public Vector2 grid_Size;
     public float node_radius;
     public Transform player;
     public GameObject effect;
     public List<Node> path;
-    public MazeRender maze_Size;
 
     private Node[,] grid;
     private float node_diameter;
@@ -20,15 +20,15 @@ public class GridScript : MonoBehaviour
     private void Start()
     {
         node_diameter = node_radius * 2;
-        grid_size_x = Mathf.RoundToInt(maze_Size.width / node_diameter);
-        grid_size_y = Mathf.RoundToInt(maze_Size.height / node_diameter);
+        grid_size_x = Mathf.RoundToInt(grid_Size.x / node_diameter);
+        grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
         CreateGrid();
 
     }
     void CreateGrid()
     {
         grid = new Node[grid_size_x, grid_size_y];
-        Vector3 grid_bottom_left = transform.position - Vector3.right * maze_Size.width / 2 - Vector3.forward * maze_Size.height / 2;
+        Vector3 grid_bottom_left = transform.position - Vector3.right * grid_Size.x / 2 - Vector3.forward * grid_Size.y / 2;
 
         for (int x = 0; x < grid_size_x; x++)
         {
@@ -63,8 +63,8 @@ public class GridScript : MonoBehaviour
     }
     public Node NodeFromWoldPoint(Vector3 world_pos)
     {
-        float percentageX = (world_pos.x + maze_Size.width / 2) / maze_Size.width;
-        float percentageY = (world_pos.z + maze_Size.height / 2) / maze_Size.height;
+        float percentageX = (world_pos.x + grid_Size.x / 2) / grid_Size.x;
+        float percentageY = (world_pos.z + grid_Size.y / 2) / grid_Size.y;
         percentageX = Mathf.Clamp01(percentageX);
         percentageY = Mathf.Clamp01(percentageY);
 
@@ -76,19 +76,12 @@ public class GridScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) 
-        {
-            instansion();
-        }
-        if (Input.GetKey(KeyCode.C))
-        {
-            GetToDestination();
-        }
-
+        instansion();
+        GetToDestination();
     }
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(maze_Size.width, 0.2f, maze_Size.height));
+        Gizmos.DrawWireCube(transform.position, new Vector3(grid_Size.x, 0.2f, grid_Size.y));
 
         if (grid != null)
         {
