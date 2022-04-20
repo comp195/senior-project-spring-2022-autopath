@@ -36,16 +36,77 @@ class Home extends Component {
     mazeSpeed: 10,
   };
 
-  updateDimensions = () => {
-    this.setState({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
+  animateAlgorithm = (visitedNodesInOrder, nodesInShortestPathOrder) => {
+    let newGrid = this.state.grid.slice();
+    for (let row of newGrid) {
+      for (let node of row) {
+        let newNode = {
+          ...node,
+          isVisited: false,
+        };
+        newGrid[node.row][node.col] = newNode;
+      }
+    }
+    this.setState({ grid: newGrid });
+    for (let i = 1; i <= visitedNodesInOrder.length; i++) {
+      let node = visitedNodesInOrder[i];
+      if (i === visitedNodesInOrder.length) {
+        setTimeout(() => {
+          this.animateShortestPath(
+            nodesInShortestPathOrder,
+            visitedNodesInOrder
+          );
+        }, i * this.state.speed);
+        return;
+      }
+      setTimeout(() => {
+        //visited node
+        document.getElementById(`node-${node.row}-${node.col}`).className =
+          "node node-visited";
+      }, i * this.state.speed);
+    }
   };
 
-  updateSpeed = (path, maze) => {
-    this.setState({ speed: path, mazeSpeed: maze });
-  };
+  animateBidirectionalAlgorithm(
+    visitedNodesInOrderStart,
+    visitedNodesInOrderFinish,
+    nodesInShortestPathOrder,
+    isShortedPath
+  ) {
+    let len = Math.max(
+      visitedNodesInOrderStart.length,
+      visitedNodesInOrderFinish.length
+    );
+    for (let i = 1; i <= len; i++) {
+      let nodeA = visitedNodesInOrderStart[i];
+      let nodeB = visitedNodesInOrderFinish[i];
+      if (i === visitedNodesInOrderStart.length) {
+        setTimeout(() => {
+          let visitedNodesInOrder = getVisitedNodesInOrder(
+            visitedNodesInOrderStart,
+            visitedNodesInOrderFinish
+          );
+          if (isShortedPath) {
+            this.animateShortestPath(
+              nodesInShortestPathOrder,
+              visitedNodesInOrder
+            );
+          } else {
+            this.setState({ visualizingAlgorithm: false });
+          }
+        }, i * this.state.speed);
+        return;
+      }
+      setTimeout(() => {
+        if (nodeA !== undefined)
+          document.getElementById(`node-${nodeA.row}-${nodeA.col}`).className =
+            "node node-visited";
+        if (nodeB !== undefined)
+          document.getElementById(`node-${nodeB.row}-${nodeB.col}`).className =
+            "node node-visited";
+      }, i * this.state.speed);
+    }
+  }
 
   componentDidMount() {
     window.addEventListener("resize", this.updateDimensions);
@@ -139,77 +200,18 @@ class Home extends Component {
     }
   };
 
-  animateAlgorithm = (visitedNodesInOrder, nodesInShortestPathOrder) => {
-    let newGrid = this.state.grid.slice();
-    for (let row of newGrid) {
-      for (let node of row) {
-        let newNode = {
-          ...node,
-          isVisited: false,
-        };
-        newGrid[node.row][node.col] = newNode;
-      }
-    }
-    this.setState({ grid: newGrid });
-    for (let i = 1; i <= visitedNodesInOrder.length; i++) {
-      let node = visitedNodesInOrder[i];
-      if (i === visitedNodesInOrder.length) {
-        setTimeout(() => {
-          this.animateShortestPath(
-            nodesInShortestPathOrder,
-            visitedNodesInOrder
-          );
-        }, i * this.state.speed);
-        return;
-      }
-      setTimeout(() => {
-        //visited node
-        document.getElementById(`node-${node.row}-${node.col}`).className =
-          "node node-visited";
-      }, i * this.state.speed);
-    }
+
+
+  updateDimensions = () => {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
   };
 
-  animateBidirectionalAlgorithm(
-    visitedNodesInOrderStart,
-    visitedNodesInOrderFinish,
-    nodesInShortestPathOrder,
-    isShortedPath
-  ) {
-    let len = Math.max(
-      visitedNodesInOrderStart.length,
-      visitedNodesInOrderFinish.length
-    );
-    for (let i = 1; i <= len; i++) {
-      let nodeA = visitedNodesInOrderStart[i];
-      let nodeB = visitedNodesInOrderFinish[i];
-      if (i === visitedNodesInOrderStart.length) {
-        setTimeout(() => {
-          let visitedNodesInOrder = getVisitedNodesInOrder(
-            visitedNodesInOrderStart,
-            visitedNodesInOrderFinish
-          );
-          if (isShortedPath) {
-            this.animateShortestPath(
-              nodesInShortestPathOrder,
-              visitedNodesInOrder
-            );
-          } else {
-            this.setState({ visualizingAlgorithm: false });
-          }
-        }, i * this.state.speed);
-        return;
-      }
-      setTimeout(() => {
-        if (nodeA !== undefined)
-          document.getElementById(`node-${nodeA.row}-${nodeA.col}`).className =
-            "node node-visited";
-        if (nodeB !== undefined)
-          document.getElementById(`node-${nodeB.row}-${nodeB.col}`).className =
-            "node node-visited";
-      }, i * this.state.speed);
-    }
-  }
+  updateSpeed = (path, maze) => {
+    this.setState({ speed: path, mazeSpeed: maze });
+  };
 
   visualizeDijkstra() {
     if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
