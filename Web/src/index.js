@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/js/dist/dropdown";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
