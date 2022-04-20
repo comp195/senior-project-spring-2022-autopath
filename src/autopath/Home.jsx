@@ -193,7 +193,6 @@ class Home extends Component {
       }
       let node = nodesInShortestPathOrder[i];
       setTimeout(() => {
-        //shortest path node
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-shortest-path";
       }, i * (3 * this.state.speed));
