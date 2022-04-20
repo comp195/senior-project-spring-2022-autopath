@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Node from "./Node/Node";
 import "./Home.css";
 import Menubar from "./menubar";
+import {randomMaze} from "../algorithms/randomMaze";
+import {recursiveDivisionMaze} from "../algorithms/recursiveDivision";
+import {verticalMaze} from "../algorithms/verticalMaze";
+import {horizontalMaze} from "../algorithms/horizontalMaze";
 import {astar, getNodesInShortestPathOrderAstar } from "../algorithms/astar";
 import {bidirectionalGreedySearch, getNodesInShortestPathOrderBidirectionalGreedySearch} from "../algorithms/bidirectionalGreedySearch";
 import {breadthFirstSearch, getNodesInShortestPathOrderBFS} from "../algorithms/breadthFirstSearch";
@@ -12,7 +16,6 @@ import {greedyBFS, getNodesInShortestPathOrderGreedyBFS} from "../algorithms/gre
 const initialNum = getInitialNum(window.innerWidth, window.innerHeight);
 const initialNumRows = initialNum[0];
 const initialNumColumns = initialNum[1];
-
 const startFinishNode = getStartFinishNode(initialNumRows, initialNumColumns);
 const startNodeRow = startFinishNode[0];
 const startNodeCol = startFinishNode[1];
@@ -198,7 +201,6 @@ class Home extends Component {
         return;
       }
       setTimeout(() => {
-        //visited nodes
         if (nodeA !== undefined)
           document.getElementById(`node-${nodeA.row}-${nodeA.col}`).className =
             "node node-visited";
@@ -238,6 +240,36 @@ class Home extends Component {
       const nodesInShortestPathOrder =
         getNodesInShortestPathOrderAstar(finishNode);
       this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
+    }, this.state.speed);
+  }
+
+  visualizeBidirectionalGreedySearch() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ visualizingAlgorithm: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const visitedNodesInOrder = bidirectionalGreedySearch(
+        grid,
+        startNode,
+        finishNode
+      );
+      const visitedNodesInOrderStart = visitedNodesInOrder[0];
+      const visitedNodesInOrderFinish = visitedNodesInOrder[1];
+      const isShortedPath = visitedNodesInOrder[2];
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderBidirectionalGreedySearch(
+        visitedNodesInOrderStart[visitedNodesInOrderStart.length - 1],
+        visitedNodesInOrderFinish[visitedNodesInOrderFinish.length - 1]
+      );
+      this.animateBidirectionalAlgorithm(
+        visitedNodesInOrderStart,
+        visitedNodesInOrderFinish,
+        nodesInShortestPathOrder,
+        isShortedPath
+      );
     }, this.state.speed);
   }
 
@@ -296,36 +328,6 @@ class Home extends Component {
     }, this.state.speed);
   }
 
-  visualizeBidirectionalGreedySearch() {
-    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
-      return;
-    }
-    this.setState({ visualizingAlgorithm: true });
-    setTimeout(() => {
-      const { grid } = this.state;
-      const startNode = grid[startNodeRow][startNodeCol];
-      const finishNode = grid[finishNodeRow][finishNodeCol];
-      const visitedNodesInOrder = bidirectionalGreedySearch(
-        grid,
-        startNode,
-        finishNode
-      );
-      const visitedNodesInOrderStart = visitedNodesInOrder[0];
-      const visitedNodesInOrderFinish = visitedNodesInOrder[1];
-      const isShortedPath = visitedNodesInOrder[2];
-      const nodesInShortestPathOrder = getNodesInShortestPathOrderBidirectionalGreedySearch(
-        visitedNodesInOrderStart[visitedNodesInOrderStart.length - 1],
-        visitedNodesInOrderFinish[visitedNodesInOrderFinish.length - 1]
-      );
-      this.animateBidirectionalAlgorithm(
-        visitedNodesInOrderStart,
-        visitedNodesInOrderFinish,
-        nodesInShortestPathOrder,
-        isShortedPath
-      );
-    }, this.state.speed);
-  }
-
   animateMaze = (walls) => {
     for (let i = 0; i <= walls.length; i++) {
       if (i === walls.length) {
@@ -346,6 +348,62 @@ class Home extends Component {
     }
   };
 
+  generateRandomMaze() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ generatingMaze: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const walls = randomMaze(grid, startNode, finishNode);
+      this.animateMaze(walls);
+    }, this.state.mazeSpeed);
+  }
+
+  generateRecursiveDivisionMaze() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ generatingMaze: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const walls = recursiveDivisionMaze(grid, startNode, finishNode);
+      this.animateMaze(walls);
+    }, this.state.mazeSpeed);
+  }
+
+  generateVerticalMaze() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ generatingMaze: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const walls = verticalMaze(grid, startNode, finishNode);
+      this.animateMaze(walls);
+    }, this.state.mazeSpeed);
+  }
+
+  generateHorizontalMaze() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ generatingMaze: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const walls = horizontalMaze(grid, startNode, finishNode);
+      this.animateMaze(walls);
+    }, this.state.mazeSpeed);
+  }
+  
   render() {
     let { grid } = this.state;
     return (
@@ -362,12 +420,10 @@ class Home extends Component {
           visualizeDFS={this.visualizeDFS.bind(this)}
           visualizeGreedyBFS={this.visualizeGreedyBFS.bind(this)}
          
-          // generateRandomMaze={this.generateRandomMaze.bind(this)}
-          // generateRecursiveDivisionMaze={this.generateRecursiveDivisionMaze.bind(
-          //   this
-          // )}
-          // generateVerticalMaze={this.generateVerticalMaze.bind(this)}
-          // generateHorizontalMaze={this.generateHorizontalMaze.bind(this)}
+          generateRandomMaze={this.generateRandomMaze.bind(this)}
+          generateRecursiveDivisionMaze={this.generateRecursiveDivisionMaze.bind(this)}
+          generateVerticalMaze={this.generateVerticalMaze.bind(this)}
+          generateHorizontalMaze={this.generateHorizontalMaze.bind(this)}
           clearGrid={this.clearGrid.bind(this)}
           clearPath={this.clearPath.bind(this)}
           updateSpeed={this.updateSpeed.bind(this)}
