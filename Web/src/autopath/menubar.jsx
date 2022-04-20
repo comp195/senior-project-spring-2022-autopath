@@ -67,16 +67,14 @@ class Menubar extends Component {
         this.props.visualizeDijkstra();
       else if (this.state.algorithm === "Visualize A*")
         this.props.visualizeAStar();
-      // else if (this.state.algorithm === "Visualize Greedy BFS")
-      //   this.props.visualizeGreedyBFS();
-      // else if (this.state.algorithm === "Visualize Bidirectional Greedy")
-      //   this.props.visualizeBidirectionalGreedySearch();
-      // else if (this.state.algorithm === "Visualize Breadth First Search")
-      //   this.props.visualizeBFS();
-      // else if (this.state.algorithm === "Visualize Depth First Search")
-      //   this.props.visualizeDFS();
-      // else if (this.state.algorithm === "Visualize Random Walk")
-      //   this.props.visualizeRandomWalk();
+      else if (this.state.algorithm === "Visualize Greedy BFS")
+        this.props.visualizeGreedyBFS();
+      else if (this.state.algorithm === "Visualize Bidirectional Greedy")
+        this.props.visualizeBidirectionalGreedySearch();
+      else if (this.state.algorithm === "Visualize Breadth First Search")
+        this.props.visualizeBFS();
+      else if (this.state.algorithm === "Visualize Depth First Search")
+        this.props.visualizeDFS();
     }
   }
 
@@ -224,15 +222,6 @@ class Menubar extends Component {
                     }
                   >
                     Depth First Search
-                  </button>
-                  <button
-                    className="dropdown-item btn-light"
-                    type="button"
-                    onClick={() =>
-                      this.selectAlgorithm("Visualize Random Walk")
-                    }
-                  >
-                    Random Walk
                   </button>
                 </div>
               </div>{" "}

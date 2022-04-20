@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
-import Node from './Node/Node';
-import './Home.css';
+import React, { Component } from "react";
+import Node from "./Node/Node";
+import "./Home.css";
 import Menubar from "./menubar";
-import {dijkstra, getNodesInShortestPathOrderDijkstra} from '../algorithms/dijkstra';
-import {astar, getNodesInShortestPathOrderAstar} from "../algorithms/astar";
+import {astar, getNodesInShortestPathOrderAstar } from "../algorithms/astar";
+import {bidirectionalGreedySearch, getNodesInShortestPathOrderBidirectionalGreedySearch} from "../algorithms/bidirectionalGreedySearch";
+import {breadthFirstSearch, getNodesInShortestPathOrderBFS} from "../algorithms/breadthFirstSearch";
+import {depthFirstSearch, getNodesInShortestPathOrderDFS} from "../algorithms/depthFirstSearch";
+import {dijkstra, getNodesInShortestPathOrderDijkstra} from "../algorithms/dijkstra";
+import {greedyBFS, getNodesInShortestPathOrderGreedyBFS} from "../algorithms/greedyBestFirstSearch";
 
 const initialNum = getInitialNum(window.innerWidth, window.innerHeight);
 const initialNumRows = initialNum[0];
@@ -173,9 +177,8 @@ class Home extends Component {
       const startNode = grid[startNodeRow][startNodeCol];
       const finishNode = grid[finishNodeRow][finishNodeCol];
       const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-      const nodesInShortestPathOrder = getNodesInShortestPathOrderDijkstra(
-        finishNode
-      );
+      const nodesInShortestPathOrder =
+        getNodesInShortestPathOrderDijkstra(finishNode);
       this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
     }, this.state.speed);
   }
@@ -190,13 +193,11 @@ class Home extends Component {
       const startNode = grid[startNodeRow][startNodeCol];
       const finishNode = grid[finishNodeRow][finishNodeCol];
       const visitedNodesInOrder = astar(grid, startNode, finishNode);
-      const nodesInShortestPathOrder = getNodesInShortestPathOrderAstar(
-        finishNode
-      );
+      const nodesInShortestPathOrder =
+        getNodesInShortestPathOrderAstar(finishNode);
       this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
     }, this.state.speed);
   }
-
 
   render() {
     let { grid } = this.state;
@@ -274,8 +275,6 @@ class Home extends Component {
     );
   }
 }
-
-
 
 function getInitialNum(width, height) {
   let numColumns;
@@ -452,12 +451,7 @@ const updateNodesForRender = (
   }
 };
 
-
-
 export default Home;
-
-
-
 
 // const START_NODE_ROW = 10;
 // const START_NODE_COL = 15;
