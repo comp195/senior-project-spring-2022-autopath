@@ -65,8 +65,8 @@ class Menubar extends Component {
       this.setState({ pathState: true });
       if (this.state.algorithm === "Visualize Dijkstra")
         this.props.visualizeDijkstra();
-      // else if (this.state.algorithm === "Visualize A*")
-      //   this.props.visualizeAStar();
+      else if (this.state.algorithm === "Visualize A*")
+        this.props.visualizeAStar();
       // else if (this.state.algorithm === "Visualize Greedy BFS")
       //   this.props.visualizeGreedyBFS();
       // else if (this.state.algorithm === "Visualize Bidirectional Greedy")

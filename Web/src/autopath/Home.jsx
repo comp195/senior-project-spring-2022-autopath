@@ -3,6 +3,7 @@ import Node from './Node/Node';
 import './Home.css';
 import Menubar from "./menubar";
 import {dijkstra, getNodesInShortestPathOrderDijkstra} from '../algorithms/dijkstra';
+import {astar, getNodesInShortestPathOrderAstar} from "../algorithms/astar";
 
 const initialNum = getInitialNum(window.innerWidth, window.innerHeight);
 const initialNumRows = initialNum[0];
@@ -179,6 +180,23 @@ class Home extends Component {
     }, this.state.speed);
   }
 
+  visualizeAStar() {
+    if (this.state.visualizingAlgorithm || this.state.generatingMaze) {
+      return;
+    }
+    this.setState({ visualizingAlgorithm: true });
+    setTimeout(() => {
+      const { grid } = this.state;
+      const startNode = grid[startNodeRow][startNodeCol];
+      const finishNode = grid[finishNodeRow][finishNodeCol];
+      const visitedNodesInOrder = astar(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderAstar(
+        finishNode
+      );
+      this.animateAlgorithm(visitedNodesInOrder, nodesInShortestPathOrder);
+    }, this.state.speed);
+  }
+
 
   render() {
     let { grid } = this.state;
@@ -188,7 +206,7 @@ class Home extends Component {
           visualizingAlgorithm={this.state.visualizingAlgorithm}
           generatingMaze={this.state.generatingMaze}
           visualizeDijkstra={this.visualizeDijkstra.bind(this)}
-          // visualizeAStar={this.visualizeAStar.bind(this)}
+          visualizeAStar={this.visualizeAStar.bind(this)}
           // visualizeGreedyBFS={this.visualizeGreedyBFS.bind(this)}
           // visualizeBidirectionalGreedySearch={this.visualizeBidirectionalGreedySearch.bind(
           //   this
