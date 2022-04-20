@@ -1,2 +1,4 @@
 node_modules/
 VR/Temp/UnityLockfile
+*.DS_Store
+*/*.DS_Store
