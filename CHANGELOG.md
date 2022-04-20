@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.3...v0.1.4) (2022-04-20)
+
+
+### Features
+
+* added favicons ([21df9c0](https://github.com/comp195/senior-project-spring-2022-autopath/commits/21df9c06e53ccc38a4e2a1438328abfb790c19ae))
+* added menubar and clear all feature ([1ef737c](https://github.com/comp195/senior-project-spring-2022-autopath/commits/1ef737ca2494049fc214e1a6216a9ff0433b2625))
+* added sfprodisplay font ([74ec821](https://github.com/comp195/senior-project-spring-2022-autopath/commits/74ec8213f6ba3eafd20058ab9e89f0a88f543e85))
+* updated login page ([ca5466a](https://github.com/comp195/senior-project-spring-2022-autopath/commits/ca5466a77aa422d13614d8f647fff671d91271e6))
+* updated login page ([5acf8db](https://github.com/comp195/senior-project-spring-2022-autopath/commits/5acf8db671dc645c044d8ebc3ac0575df28df57c))
+
+
+### Bug Fixes
+
+* fixed bug that allows user to select main grid ([d8e7edf](https://github.com/comp195/senior-project-spring-2022-autopath/commits/d8e7edfc364bb138450ed912a970048a691ce004))
+* line rendering works ([78c50b2](https://github.com/comp195/senior-project-spring-2022-autopath/commits/78c50b28c3f32a85df02c301ee3fde589fb36443))
+* trying to fix line rendering ([440eba2](https://github.com/comp195/senior-project-spring-2022-autopath/commits/440eba2bf67a5414858af24c901b5769b58bcaab))
+
+
+### Documents
+
+* add poster ([c7c08f1](https://github.com/comp195/senior-project-spring-2022-autopath/commits/c7c08f11ce1f280ec214942bc44520b166d6b3b0))
+* update readme ([ac9d8c6](https://github.com/comp195/senior-project-spring-2022-autopath/commits/ac9d8c68501c3f781745f9a75c4f1ff87b3a121e))
+
 ### [0.1.3](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.1.2...v0.1.3) (2022-04-03)
 
 
