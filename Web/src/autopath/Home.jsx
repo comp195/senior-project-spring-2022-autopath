@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Node from './Node/Node';
 import './Home.css';
-import NavBar from "./menubar";
+import Menubar from "./menubar";
 import {dijkstra, getNodesInShortestPathOrderDijkstra} from '../algorithms/dijkstra';
 
 const initialNum = getInitialNum(window.innerWidth, window.innerHeight);
@@ -184,7 +184,7 @@ class Home extends Component {
     let { grid } = this.state;
     return (
       <React.Fragment>
-        <NavBar
+        <Menubar
           visualizingAlgorithm={this.state.visualizingAlgorithm}
           generatingMaze={this.state.generatingMaze}
           visualizeDijkstra={this.visualizeDijkstra.bind(this)}

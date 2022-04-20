@@ -1,6 +1,6 @@
 // Bikram Chatterjee
 // AutoPath
-// dijksta.js
+// dijkstra.js
 
 export function dijkstra(grid, startNode, finishNode) {
   if (!startNode || !finishNode || startNode === finishNode) {

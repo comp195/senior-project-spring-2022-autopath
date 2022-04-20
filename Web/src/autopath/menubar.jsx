@@ -3,7 +3,7 @@ import "./menubar.css";
 
 const brand = "AutoPath";
 
-class NavBar extends Component {
+class Menubar extends Component {
   state = {
     algorithm: "Visualize Algorithm",
     maze: "Generate Maze",
@@ -351,4 +351,4 @@ class NavBar extends Component {
     );
   }
 }
-export default NavBar;
+export default Menubar;
