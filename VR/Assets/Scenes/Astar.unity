@@ -2179,8 +2179,8 @@ MonoBehaviour:
   _obstacle:
     serializedVersion: 2
     m_Bits: 0
-  grid_Size: {x: 200, y: 200}
-  node_radius: 2
+  grid_Size: {x: 100, y: 100}
+  node_radius: 5
   player: {fileID: 1832407927}
   effect: {fileID: 8296381851133240449, guid: f72e7e56c645beb4f90230fa2e233d63, type: 3}
   pl_speed: 0.4
