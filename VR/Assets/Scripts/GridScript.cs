@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GridScript : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GridScript : MonoBehaviour
         grid_size_x = Mathf.RoundToInt(grid_Size.x / node_diameter);
         grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
         CreateGrid();
+        instansion();
 
     }
     void CreateGrid()
@@ -76,8 +78,7 @@ public class GridScript : MonoBehaviour
     }
     private void Update()
     {
-        instansion();
-        GetToDestination();
+
     }
     private void OnDrawGizmos()
     {

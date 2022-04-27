@@ -22,7 +22,7 @@ public class Maze : MonoBehaviour
     public GameObject wall_prefab;
 
     
-    public int cell_size = 10;
+    public int cell_size = 6;
 
     private void Awake()
     {

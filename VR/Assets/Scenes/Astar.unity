@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010483017, g: 0.052960932, b: 0.15313703, a: 1}
+  m_IndirectSpecularColor: {r: 0.010487324, g: 0.05298409, b: 0.15319219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318772700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.6, y: 0, z: 50}
+  m_LocalPosition: {x: -24.8, y: 0, z: 45.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1118741681}
@@ -1318,11 +1318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fccf9754ae3d24f9a9b310d1c1ef34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_particle: {fileID: 8296381851133240449, guid: f72e7e56c645beb4f90230fa2e233d63, type: 3}
-  stack_particle: {fileID: 8296381851133240449, guid: e03d59c3f9238e44abb259b4a59d65e2, type: 3}
+  current_particle: {fileID: 8296381851133240449, guid: e03d59c3f9238e44abb259b4a59d65e2, type: 3}
+  stack_particle: {fileID: 8296381851133240449, guid: f72e7e56c645beb4f90230fa2e233d63, type: 3}
   visited_particle: {fileID: 8296381851133240449, guid: 62a446be6d9f53c44b631d09b9a3e616, type: 3}
-  toggle_visualization: 0
-  wall_prefab: {fileID: 8105778222240571339, guid: d72eecdb9df7da543a6b669b8879482a, type: 3}
+  toggle_visualization: 1
+  wall_prefab: {fileID: 4120777551412667970, guid: 2d864280e05593540a6300e013ec8fc7, type: 3}
   cell_size: 10
 --- !u!4 &1063720082
 Transform:
@@ -1510,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 6b8798b18af76a24fb6fc3a23b2e54a6, type: 3}
       propertyPath: m_Name
-      value: bot
+      value: untitled
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8798b18af76a24fb6fc3a23b2e54a6, type: 3}
@@ -2178,12 +2178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacle:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   grid_Size: {x: 100, y: 100}
-  node_radius: 5
+  node_radius: 2
   player: {fileID: 1832407927}
   effect: {fileID: 8296381851133240449, guid: f72e7e56c645beb4f90230fa2e233d63, type: 3}
-  pl_speed: 0.4
+  pl_speed: 0.2
 --- !u!114 &1815879574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2206,7 +2206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815879572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: 0, z: -3.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d0b78a12da4aa4ebbd7c7016f930eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 6
 --- !u!4 &1832407927
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,7 +2250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832407923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50, y: 0, z: -50}
+  m_LocalPosition: {x: -46, y: 0, z: -46.875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 284723458}

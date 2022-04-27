@@ -13,8 +13,8 @@ public class target_mover : MonoBehaviour
     }
     private void Update()
     {
-        int horiz = 25;
-        int vertic = -25;
+        float horiz = Input.GetAxis("Horizontal");
+        float vertic = Input.GetAxis("Vertical");
 
         transform.Translate(horiz * speed * Time.deltaTime, 0, vertic * speed * Time.deltaTime);
         
