@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/senior-project-spring-2022-autopath/static/css/main.d0a5a69f.css",
-    "main.js": "/senior-project-spring-2022-autopath/static/js/main.10a25cbb.js",
+    "main.css": "/senior-project-spring-2022-autopath/static/css/main.6c0ca8e1.css",
+    "main.js": "/senior-project-spring-2022-autopath/static/js/main.191cfc85.js",
     "static/js/787.a2ac0dcb.chunk.js": "/senior-project-spring-2022-autopath/static/js/787.a2ac0dcb.chunk.js",
     "static/media/background.png": "/senior-project-spring-2022-autopath/static/media/background.9f376af5a1ee781964fb.png",
     "static/media/SFProDisplay-Light.ttf": "/senior-project-spring-2022-autopath/static/media/SFProDisplay-Light.7d7616d6b41a6eebff82.ttf",
     "index.html": "/senior-project-spring-2022-autopath/index.html",
-    "main.d0a5a69f.css.map": "/senior-project-spring-2022-autopath/static/css/main.d0a5a69f.css.map",
-    "main.10a25cbb.js.map": "/senior-project-spring-2022-autopath/static/js/main.10a25cbb.js.map",
+    "main.6c0ca8e1.css.map": "/senior-project-spring-2022-autopath/static/css/main.6c0ca8e1.css.map",
+    "main.191cfc85.js.map": "/senior-project-spring-2022-autopath/static/js/main.191cfc85.js.map",
     "787.a2ac0dcb.chunk.js.map": "/senior-project-spring-2022-autopath/static/js/787.a2ac0dcb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0a5a69f.css",
-    "static/js/main.10a25cbb.js"
+    "static/css/main.6c0ca8e1.css",
+    "static/js/main.191cfc85.js"
   ]
 }
