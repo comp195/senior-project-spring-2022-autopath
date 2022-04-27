@@ -25,7 +25,7 @@ public class GridScript : MonoBehaviour
         grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
         CreateGrid();
         Debug.Log("doing maze");
-        StartCoroutine(coroutine());
+        //StartCoroutine(coroutine());
 
     }
 
@@ -37,7 +37,7 @@ public class GridScript : MonoBehaviour
         Debug.Log("drawing line");
         
     }
-    
+ 
     void CreateGrid()
     {
         grid = new Node[grid_size_x, grid_size_y];
