@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GridScript : MonoBehaviour
 {
-    public LayerMask _obstacle;
+    public LayerMask obstacle;
     public Vector2 grid_Size;
     public float node_radius;
     public Transform player;
@@ -24,9 +24,20 @@ public class GridScript : MonoBehaviour
         grid_size_x = Mathf.RoundToInt(grid_Size.x / node_diameter);
         grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
         CreateGrid();
-        instansion();
+        Debug.Log("doing maze");
+        StartCoroutine(coroutine());
 
     }
+
+    private IEnumerator coroutine()
+    {
+        yield return new WaitForSeconds(15);
+        instansion();
+        
+        Debug.Log("drawing line");
+        
+    }
+    
     void CreateGrid()
     {
         grid = new Node[grid_size_x, grid_size_y];
@@ -37,7 +48,7 @@ public class GridScript : MonoBehaviour
             for (int y = 0; y < grid_size_y; y++)
             {
                 Vector3 world_point = grid_bottom_left + Vector3.right * (x * node_diameter + node_radius) + Vector3.forward * (y * node_diameter + node_radius);
-                bool walkable = !(Physics.CheckSphere(world_point, node_radius, _obstacle));
+                bool walkable = !(Physics.CheckSphere(world_point, node_radius, obstacle));
                 grid[x, y] = new Node(walkable, world_point, x,y);
             }
         }
