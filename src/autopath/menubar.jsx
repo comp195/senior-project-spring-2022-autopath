@@ -161,6 +161,65 @@ class Menubar extends Component {
         </a>
         <div className="navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
+          <li className="nav-item dropdown">
+              <div className="dropdown">
+                <button
+                  className="btn btn-light dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu1"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Mazes
+                </button>
+                
+                <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <button
+                    className="dropdown-item btn-light"
+                    type="button"
+                    onClick={() => this.selectMaze("Generate Horizontal Maze")}
+                  >
+                    Horizontal Division Maze
+                  </button>
+
+                  <button
+                    className="dropdown-item btn-light"
+                    type="button"
+                    onClick={() => this.selectMaze("Generate Vertical Maze")}
+                  >
+                    Vertical Division Maze
+                  </button>
+
+                  <button
+                    className="dropdown-item btn-light"
+                    type="button"
+                    onClick={() => this.selectMaze("Generate Recursive Maze")}
+                  >
+                    Recursive Division Maze
+                  </button>
+
+                  <button
+                    className="dropdown-item btn-light"
+                    type="button"
+                    onClick={() => this.selectMaze("Generate Random Maze")}
+                  >
+                    Random Maze
+                  </button>
+
+                </div>
+              </div>{" "}
+            </li>
+            <li>
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => this.generateMaze()}
+              >
+                {this.state.maze}
+              </button>
+            </li>
+
             <li className="nav-item dropdown">
               <div className="dropdown">
                 <button
@@ -235,59 +294,7 @@ class Menubar extends Component {
                 {this.state.algorithm}
               </button>
             </li>
-            <li className="nav-item dropdown">
-              <div className="dropdown">
-                <button
-                  className="btn btn-light dropdown-toggle"
-                  type="button"
-                  id="dropdownMenu1"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Mazes
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <button
-                    className="dropdown-item btn-light"
-                    type="button"
-                    onClick={() => this.selectMaze("Generate Random Maze")}
-                  >
-                    Random Maze
-                  </button>
-                  <button
-                    className="dropdown-item btn-light"
-                    type="button"
-                    onClick={() => this.selectMaze("Generate Recursive Maze")}
-                  >
-                    Recursive Division Maze
-                  </button>
-                  <button
-                    className="dropdown-item btn-light"
-                    type="button"
-                    onClick={() => this.selectMaze("Generate Vertical Maze")}
-                  >
-                    Vertical Division Maze
-                  </button>
-                  <button
-                    className="dropdown-item btn-light"
-                    type="button"
-                    onClick={() => this.selectMaze("Generate Horizontal Maze")}
-                  >
-                    Horizontal Division Maze
-                  </button>
-                </div>
-              </div>{" "}
-            </li>
-            <li>
-              <button
-                type="button"
-                className="btn btn-success"
-                onClick={() => this.generateMaze()}
-              >
-                {this.state.maze}
-              </button>
-            </li>
+            
             <li>
               <button
                 type="button"
