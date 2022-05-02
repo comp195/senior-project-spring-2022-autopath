@@ -133,10 +133,10 @@ An executable file for the AutoPath VR will be available soon!
 - [x] Web - Enable pathfinding visualization for BFS
 - [x] Web - Enable pathfinding visualization for DFS
 - [x] Web - Deploy website to AWS
-- [ ] Web - Integrate Node.js in AWS
-- [ ] VR - Design the virtual maze world
+- [x] Web - Integrate Node.js in AWS
+- [x] VR - Design the virtual maze world
 - [x] VR - Enable the ability for the user to roam around and interact with the world
-- [ ] VR - Random maze generation
+- [x] VR - Random maze generation
 - [ ] VR - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
