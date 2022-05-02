@@ -11,7 +11,7 @@ public class AStar: MonoBehaviour
     {
         grid = GetComponent<GridScript>();
     }
-    private void Start()
+    private void Update()
     {
         FindPath(debut.position, fin.position);
     }

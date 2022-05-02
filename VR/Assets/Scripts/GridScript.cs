@@ -23,15 +23,15 @@ public class GridScript : MonoBehaviour
         node_diameter = node_radius * 2;
         grid_size_x = Mathf.RoundToInt(grid_Size.x / node_diameter);
         grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
-        CreateGrid();
-        Debug.Log("doing maze");
-        //StartCoroutine(coroutine());
+        StartCoroutine(coroutine());
 
     }
 
     private IEnumerator coroutine()
     {
         yield return new WaitForSeconds(15);
+	CreateGrid();
+        Debug.Log("doing maze");
         instansion();
         
         Debug.Log("drawing line");
@@ -49,6 +49,9 @@ public class GridScript : MonoBehaviour
             {
                 Vector3 world_point = grid_bottom_left + Vector3.right * (x * node_diameter + node_radius) + Vector3.forward * (y * node_diameter + node_radius);
                 bool walkable = !(Physics.CheckSphere(world_point, node_radius, obstacle));
+                Debug.Log(x);
+                Debug.Log(y);
+                Debug.Log(walkable);
                 grid[x, y] = new Node(walkable, world_point, x,y);
             }
         }

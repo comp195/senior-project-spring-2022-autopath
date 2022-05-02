@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010483017, g: 0.052960932, b: 0.15313703, a: 1}
+  m_IndirectSpecularColor: {r: 0.010487324, g: 0.05298409, b: 0.15319219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318772700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 45.6}
+  m_LocalPosition: {x: 12.3, y: 0, z: 47.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1118741681}
@@ -2178,12 +2178,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   grid_Size: {x: 100, y: 100}
   node_radius: 2
   player: {fileID: 1832407927}
   effect: {fileID: 8296381851133240449, guid: f72e7e56c645beb4f90230fa2e233d63, type: 3}
-  pl_speed: 0.2
+  pl_speed: 0.1
 --- !u!114 &1815879574
 MonoBehaviour:
   m_ObjectHideFlags: 0
