@@ -136,12 +136,7 @@ class Home extends Component {
     }
     for (let row = 0; row < this.state.grid.length; row++) {
       for (let col = 0; col < this.state.grid[0].length; col++) {
-        if (
-          !(
-            (row === startNodeRow && col === startNodeCol) ||
-            (row === finishNodeRow && col === finishNodeCol)
-          )
-        ) {
+        if (!((row === startNodeRow && col === startNodeCol) || (row === finishNodeRow && col === finishNodeCol))) {
           document.getElementById(`node-${row}-${col}`).className = "node";
         }
       }
@@ -177,8 +172,7 @@ class Home extends Component {
   }
 
   animateShortestPath = (nodesInShortestPathOrder, visitedNodesInOrder) => {
-    if (nodesInShortestPathOrder.length === 1)
-      this.setState({ visualizingAlgorithm: false });
+    if (nodesInShortestPathOrder.length === 1) this.setState({ visualizingAlgorithm: false });
     for (let i = 1; i < nodesInShortestPathOrder.length; i++) {
       if (i === nodesInShortestPathOrder.length - 1) {
         setTimeout(() => {
@@ -198,8 +192,6 @@ class Home extends Component {
       }, i * (3 * this.state.speed));
     }
   };
-
-
 
   updateDimensions = () => {
     this.setState({
@@ -482,21 +474,13 @@ class Home extends Component {
 
 function getInitialNum(width, height) {
   let numColumns;
-  if (width > 1500) {
-    numColumns = Math.floor(width / 25);
-  } else if (width > 1250) {
-    numColumns = Math.floor(width / 22.5);
-  } else if (width > 1000) {
-    numColumns = Math.floor(width / 20);
-  } else if (width > 750) {
-    numColumns = Math.floor(width / 17.5);
-  } else if (width > 500) {
-    numColumns = Math.floor(width / 15);
-  } else if (width > 250) {
-    numColumns = Math.floor(width / 12.5);
-  } else if (width > 0) {
-    numColumns = Math.floor(width / 10);
-  }
+  if (width > 1500) numColumns = Math.floor(width / 25);
+  else if (width > 1250) numColumns = Math.floor(width / 22.5);
+  else if (width > 1000) numColumns = Math.floor(width / 20);
+  else if (width > 750) numColumns = Math.floor(width / 17.5);
+  else if (width > 500) numColumns = Math.floor(width / 15);
+  else if (width > 250) numColumns = Math.floor(width / 12.5);
+  else if (width > 0) numColumns = Math.floor(width / 10);
   let cellWidth = Math.floor(width / numColumns);
   let numRows = Math.floor(height / cellWidth);
   return [numRows, numColumns];
@@ -532,14 +516,13 @@ function getStartFinishNode(numRows, numColumns) {
     y = Math.floor(numColumns / 4);
     if (x % 2 !== 0) x -= 1;
     if (y % 2 !== 0) y += 1;
-    startNodeRow =
-      x + randomNums[1][Math.floor(Math.random() * randomNums[1].length)];
+    startNodeRow = x + randomNums[1][Math.floor(Math.random() * randomNums[1].length)];
     startNodeCol = y + [-6, -4, -2, 0][Math.floor(Math.random() * 4)];
-    finishNodeRow =
-      x + randomNums[0][Math.floor(Math.random() * randomNums[0].length)];
-    finishNodeCol =
-      numColumns - y + [0, 2, 4, 6][Math.floor(Math.random() * 4)];
-  } else {
+    finishNodeRow = x + randomNums[0][Math.floor(Math.random() * randomNums[0].length)];
+    finishNodeCol = numColumns - y + [0, 2, 4, 6][Math.floor(Math.random() * 4)];
+  } 
+  
+  else {
     randomNums = getRandomNums(numColumns);
     x = Math.floor(numRows / 4);
     y = Math.floor(numColumns / 2);
@@ -631,10 +614,7 @@ const updateNodesForRender = (
 ) => {
   let newGrid = grid.slice();
   for (let node of visitedNodesInOrder) {
-    if (
-      (node.row === startNodeRow && node.col === startNodeCol) ||
-      (node.row === finishNodeRow && node.col === finishNodeCol)
-    )
+    if ((node.row === startNodeRow && node.col === startNodeCol) || (node.row === finishNodeRow && node.col === finishNodeCol))
       continue;
     let newNode = {
       ...node,
@@ -665,12 +645,8 @@ const getVisitedNodesInOrder = (
     visitedNodesInOrderFinish.length
   );
   for (let i = 0; i < n; i++) {
-    if (visitedNodesInOrderStart[i] !== undefined) {
-      visitedNodesInOrder.push(visitedNodesInOrderStart[i]);
-    }
-    if (visitedNodesInOrderFinish[i] !== undefined) {
-      visitedNodesInOrder.push(visitedNodesInOrderFinish[i]);
-    }
+    if (visitedNodesInOrderStart[i] !== undefined) visitedNodesInOrder.push(visitedNodesInOrderStart[i]);
+    if (visitedNodesInOrderFinish[i] !== undefined)  visitedNodesInOrder.push(visitedNodesInOrderFinish[i]);
   }
   return visitedNodesInOrder;
 };

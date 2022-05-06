@@ -14,13 +14,14 @@
 
 .dropdown-menu {
   margin-right: 35px;
-  background-color: #343a40;
+  background-color: #000000;
 }
 
 .dropdown-item {
   color: white;
 }
 
+/*
 @media (max-width: 1250px) {
   .navbar-brand {
     margin-right: 25px;
@@ -155,3 +156,4 @@
     background-color: #343a40;
   }
 }
+*/

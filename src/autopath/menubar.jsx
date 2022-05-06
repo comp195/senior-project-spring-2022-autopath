@@ -82,31 +82,26 @@ class Menubar extends Component {
     if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
       return;
     }
+
     if (this.state.mazeState || this.state.pathState) {
       this.clearTemp();
     }
-    if (
-      this.state.maze === "Generate Maze" ||
-      this.state.maze === "Select a Maze!"
-    ) {
+
+    if (this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") {
       this.setState({ maze: "Select a Maze!" });
-    } else {
+    } 
+    
+    else {
       this.setState({ mazeState: true });
-      if (this.state.maze === "Generate Random Maze")
-        this.props.generateRandomMaze();
-      else if (this.state.maze === "Generate Recursive Maze")
-        this.props.generateRecursiveDivisionMaze();
-      else if (this.state.maze === "Generate Vertical Maze")
-        this.props.generateVerticalMaze();
-      else if (this.state.maze === "Generate Horizontal Maze")
-        this.props.generateHorizontalMaze();
+      if (this.state.maze === "Generate Horizontal Maze") this.props.generateHorizontalMaze();
+      else if (this.state.maze === "Generate Vertical Maze") this.props.generateVerticalMaze();
+      else if (this.state.maze === "Generate Recursive Maze") this.props.generateRecursiveDivisionMaze();
+      else if (this.state.maze === "Generate Random Maze") this.props.generateRandomMaze();
     }
   }
 
   clearGrid() {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
     this.props.clearGrid();
     this.setState({
       algorithm: "Visualize Algorithm",
@@ -117,9 +112,7 @@ class Menubar extends Component {
   }
 
   clearPath() {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
     this.props.clearPath();
     this.setState({
       pathState: false,

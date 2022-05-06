@@ -3,9 +3,12 @@
 // astar.js
 
 export function astar(grid, startNode, finishNode) {
+
+  // return false if start node is same as the end node
   if (!startNode || !finishNode || startNode === finishNode) {
     return false;
   }
+  
   let unvisitedNodes = []; 
   let visitedNodesInOrder = []; 
   startNode.distance = 0;
@@ -21,17 +24,22 @@ export function astar(grid, startNode, finishNode) {
 
     let neighbours = getNeighbours(closestNode, grid);
     for (let neighbour of neighbours) {
+
       let distance = closestNode.distance + 1;
+
       if (neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes)) {
+
         unvisitedNodes.unshift(neighbour);
         neighbour.distance = distance;
         neighbour.totalDistance =
           distance + manhattenDistance(neighbour, finishNode);
         neighbour.previousNode = closestNode;
-      } else if (distance < neighbour.distance) {
+
+      } 
+      
+      else if (distance < neighbour.distance) {
         neighbour.distance = distance;
-        neighbour.totalDistance =
-          distance + manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = distance + manhattenDistance(neighbour, finishNode);
         neighbour.previousNode = closestNode;
       }
     }
@@ -60,12 +68,14 @@ function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
   return true;
 }
 
+// Return manhatten distance
 function manhattenDistance(node, finishNode) {
   let x = Math.abs(node.row - finishNode.row);
   let y = Math.abs(node.col - finishNode.col);
   return x + y;
 }
 
+// Return list containing nodes in shortest path order for A star
 export function getNodesInShortestPathOrderAstar(finishNode) {
   let nodesInShortestPathOrder = [];
   let currentNode = finishNode;
