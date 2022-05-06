@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.5.0...v1.0.1) (2022-05-07)
+
+
+### Features
+
+* change to match size ([25918be](https://github.com/comp195/senior-project-spring-2022-autopath/commits/25918be743c818760a1a3343de049cfc6d9523cc))
+* changed to fit maze size ([0eb98e2](https://github.com/comp195/senior-project-spring-2022-autopath/commits/0eb98e2031d6b4b43b5c7bec8b86a18afb9a2e3b))
+* enable github pages ([b2c08eb](https://github.com/comp195/senior-project-spring-2022-autopath/commits/b2c08ebe6b57cfccf37d7ed98a1d297a8094972d))
+* rebuild pages ([9c4c746](https://github.com/comp195/senior-project-spring-2022-autopath/commits/9c4c746a1314b43621152542c319b9b82c5e8525))
+* small ui changes ([a5b5b6a](https://github.com/comp195/senior-project-spring-2022-autopath/commits/a5b5b6add2bf3866eafba5edd0a285eece1e87a9))
+* updated background ([6f89bb3](https://github.com/comp195/senior-project-spring-2022-autopath/commits/6f89bb36754eb9d00d4b8139c7416829bbdccce3))
+* updated menubar button locations ([862eaa9](https://github.com/comp195/senior-project-spring-2022-autopath/commits/862eaa91de2cbc9b5e5f13db538ee6c8c9b877cf))
+* updated wall color ([8bc7656](https://github.com/comp195/senior-project-spring-2022-autopath/commits/8bc7656a1e95924becaf5297c3724d318fd99a90))
+
+
+### Bug Fixes
+
+* bug fix in game scene ([76f5933](https://github.com/comp195/senior-project-spring-2022-autopath/commits/76f593389140e3928276c94885c5930c23481693))
+* bug in line display ([802c7a9](https://github.com/comp195/senior-project-spring-2022-autopath/commits/802c7a9d40fe27829be7fa9e977c224d0f0773a2))
+* changes to the maze and algorithm ([250256d](https://github.com/comp195/senior-project-spring-2022-autopath/commits/250256d273ced22ce19dfb4ed4aa2374d658972d))
+* fixed dropdown ([a6f25aa](https://github.com/comp195/senior-project-spring-2022-autopath/commits/a6f25aa2d7a61dcf39aaf4e5bb08b26e6f0d82dd))
+
+
+### Documents
+
+* update readme ([83c2d90](https://github.com/comp195/senior-project-spring-2022-autopath/commits/83c2d9027ecdf2b45e04729141670fdd13572e5a))
+* update readme ([5657bf0](https://github.com/comp195/senior-project-spring-2022-autopath/commits/5657bf026c99a85ba2ff79c46b480b3151de622b))
+
 ## [1.0.0](https://github.com/comp195/senior-project-spring-2022-autopath/compare/v0.5.0...v1.0.0) (2022-05-07)
 
 
