@@ -25,35 +25,25 @@ class Node extends Component {
       numColumns,
     } = this.props;
 
-    const extraClass = isStart
-      ? "node node-start"
-      : isFinish
-      ? "node node-finish"
-      : isWall
-      ? "node-wall"
-      : isShortest
-      ? "node node-shortest-path"
-      : isVisited
-      ? "node node-visited"
-      : "node";
+    const nodeStatus = isStart ? "node node-start" : isFinish ? "node node-finish" : isWall ? "node-wall" : isShortest ? "node node-shortest-path" : isVisited ? "node node-visited" : "node";
 
-    let cellWidth = Math.floor((width - 15) / numColumns);
-    let cellHeight;
+    let cWidth = Math.floor((width - 15) / numColumns);
+    let cHeight;
     if (width > 1500) {
-      cellHeight = Math.floor((height - 70) / numRows);
+      cHeight = Math.floor((height - 70) / numRows);
     } else if (width > 1000) {
-      cellHeight = Math.floor((height - 70) / numRows);
+      cHeight = Math.floor((height - 70) / numRows);
     } else if (width > 500) {
-      cellHeight = Math.floor((height - 60) / numRows);
+      cHeight = Math.floor((height - 60) / numRows);
     } else if (width > 0) {
-      cellHeight = Math.floor((height - 50) / numRows);
+      cHeight = Math.floor((height - 50) / numRows);
     }
 
     return (
       <div
         id={`node-${row}-${col}`}
-        className={`${extraClass}`}
-        style={{ "--width": `${cellWidth}px`, "--height": `${cellHeight}px` }}
+        className={`${nodeStatus}`}
+        style={{ "--width": `${cWidth}px`, "--height": `${cHeight}px` }}
         onMouseEnter={() => onMouseEnter(row, col)}
         onMouseDown={() => onMouseDown(row, col)}
         onMouseUp={() => onMouseUp()}
@@ -63,3 +53,4 @@ class Node extends Component {
 }
 
 export default Node;
+

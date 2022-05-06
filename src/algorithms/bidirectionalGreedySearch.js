@@ -2,8 +2,8 @@
 // AutoPath
 // bidirectionalGreedySearch.js
 
-export function bidirectionalGreedySearch(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function bidirectionalGreedySearch(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let unvisitedNodesStart = [];
@@ -11,9 +11,9 @@ export function bidirectionalGreedySearch(grid, startNode, finishNode) {
   let unvisitedNodesFinish = [];
   let visitedNodesInOrderFinish = [];
   startNode.distance = 0;
-  finishNode.distance = 0;
+  endNode.distance = 0;
   unvisitedNodesStart.push(startNode);
-  unvisitedNodesFinish.push(finishNode);
+  unvisitedNodesFinish.push(endNode);
 
   while (
     unvisitedNodesStart.length !== 0 &&
@@ -43,11 +43,11 @@ export function bidirectionalGreedySearch(grid, startNode, finishNode) {
       if (neighbourNotInUnvisitedNodes(neighbour, unvisitedNodesStart)) {
         unvisitedNodesStart.unshift(neighbour);
         neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNodeStart;
       } else if (distance < neighbour.distance) {
         neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNodeStart;
       }
     }

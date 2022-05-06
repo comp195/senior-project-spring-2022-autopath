@@ -2,8 +2,8 @@
 // AutoPath
 // greedyBestFirstSearch.js
 
-export function greedyBFS(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function greedyBFS(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let unvisitedNodes = [];
@@ -14,7 +14,7 @@ export function greedyBFS(grid, startNode, finishNode) {
   while (unvisitedNodes.length !== 0) {
     unvisitedNodes.sort((a, b) => a.totalDistance - b.totalDistance);
     let closestNode = unvisitedNodes.shift();
-    if (closestNode === finishNode) return visitedNodesInOrder;
+    if (closestNode === endNode) return visitedNodesInOrder;
 
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
@@ -25,11 +25,11 @@ export function greedyBFS(grid, startNode, finishNode) {
       if (neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes)) {
         unvisitedNodes.unshift(neighbour);
         neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
       } else if (distance < neighbour.distance) {
         neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
       }
     }

@@ -42,6 +42,7 @@ function getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode) {
 
   if (dir === 0) {
     addWall(dir, num, vertical, horizontal, startNode, finishNode);
+
     getRecursiveWalls(
       vertical.slice(0, vertical.indexOf(num)),
       horizontal,
@@ -49,6 +50,7 @@ function getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode) {
       startNode,
       finishNode
     );
+
     getRecursiveWalls(
       vertical.slice(vertical.indexOf(num) + 1),
       horizontal,
@@ -56,7 +58,9 @@ function getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode) {
       startNode,
       finishNode
     );
-  } else {
+  } 
+  
+  else {
     addWall(dir, num, vertical, horizontal, startNode, finishNode);
     getRecursiveWalls(
       vertical,
@@ -65,6 +69,7 @@ function getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode) {
       startNode,
       finishNode
     );
+
     getRecursiveWalls(
       vertical,
       horizontal.slice(horizontal.indexOf(num) + 1),
@@ -93,7 +98,7 @@ function generateOddRandomNumber(array) {
 //dir === 0 => Horizontal
 //dir === 1 => Vertical
 
-function addWall(dir, num, vertical, horizontal, startNode, finishNode) {
+function addWall(dir, num, vertical, horizontal, startNode, endNode) {
   let isStartFinish = false;
   let tempWalls = [];
   if (dir === 0) {
@@ -101,7 +106,7 @@ function addWall(dir, num, vertical, horizontal, startNode, finishNode) {
     for (let temp of horizontal) {
       if (
         (temp === startNode.row && num === startNode.col) ||
-        (temp === finishNode.row && num === finishNode.col)
+        (temp === endNode.row && num === endNode.col)
       ) {
         isStartFinish = true;
         continue;
@@ -113,7 +118,7 @@ function addWall(dir, num, vertical, horizontal, startNode, finishNode) {
     for (let temp of vertical) {
       if (
         (num === startNode.row && temp === startNode.col) ||
-        (num === finishNode.row && temp === finishNode.col)
+        (num === endNode.row && temp === endNode.col)
       ) {
         isStartFinish = true;
         continue;

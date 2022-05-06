@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./menubar.css";
-
-const brand = "AutoPath";
+import logo from '../images/logo.png';
 
 class Menubar extends Component {
   state = {
@@ -16,16 +15,17 @@ class Menubar extends Component {
     if (this.props.visualizingAlgorithm) {
       return;
     }
-    if (
-      selection === this.state.algorithm ||
-      this.state.algorithm === "Visualize Algorithm" ||
-      this.state.algorithm === "Select an Algorithm!"
-    ) {
+    if (selection === this.state.algorithm || this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") 
+    {
       this.setState({ algorithm: selection });
-    } else if (this.state.pathState) {
+    } 
+    
+    else if (this.state.pathState) {
       this.clearPath();
       this.setState({ algorithm: selection });
-    } else {
+    } 
+    
+    else {
       this.setState({ algorithm: selection });
     }
   }
@@ -57,11 +57,11 @@ class Menubar extends Component {
       return;
     }
     if (
-      this.state.algorithm === "Visualize Algorithm" ||
-      this.state.algorithm === "Select an Algorithm!"
-    ) {
+      this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") {
       this.setState({ algorithm: "Select an Algorithm!" });
-    } else {
+    } 
+    
+    else {
       this.setState({ pathState: true });
       if (this.state.algorithm === "Visualize Dijkstra")
         this.props.visualizeDijkstra();
@@ -79,18 +79,9 @@ class Menubar extends Component {
   }
 
   generateMaze() {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
-
-    if (this.state.mazeState || this.state.pathState) {
-      this.clearTemp();
-    }
-
-    if (this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") {
-      this.setState({ maze: "Select a Maze!" });
-    } 
-    
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
+    if (this.state.mazeState || this.state.pathState) this.clearTemp();
+    if (this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") this.setState({ maze: "Select a Maze!" });
     else {
       this.setState({ mazeState: true });
       if (this.state.maze === "Generate Horizontal Maze") this.props.generateHorizontalMaze();
@@ -121,9 +112,7 @@ class Menubar extends Component {
   }
 
   clearTemp() {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
     this.props.clearGrid();
     this.setState({
       pathState: false,
@@ -132,12 +121,10 @@ class Menubar extends Component {
   }
 
   changeSpeed(speed) {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
     let value = [10, 10];
     if (speed === "Slow") value = [50, 30];
-    else if (speed === "Medium") value = [25, 20];
+    else if (speed === "Normal") value = [25, 20];
     else if (speed === "Fast") value = [10, 10];
     this.setState({ speedState: speed });
     this.props.updateSpeed(value[0], value[1]);
@@ -146,12 +133,9 @@ class Menubar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a
-          className="navbar-brand h1 mb-0"
-          href="https://github.com/i0nics"
-        >
-          {brand}
-        </a>
+        <div className="navbar-brand h1 mb-0">
+          <img src={logo} height={38}/>
+        </div>
         <div className="navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
           <li className="nav-item dropdown">
@@ -206,7 +190,7 @@ class Menubar extends Component {
             <li>
               <button
                 type="button"
-                className="btn btn-success"
+                className="btn btn-light"
                 onClick={() => this.generateMaze()}
               >
                 {this.state.maze}
@@ -281,7 +265,7 @@ class Menubar extends Component {
             <li>
               <button
                 type="button"
-                className="btn btn-success"
+                className="btn btn-light"
                 onClick={() => this.visualizeAlgorithm()}
               >
                 {this.state.algorithm}
@@ -291,7 +275,7 @@ class Menubar extends Component {
             <li>
               <button
                 type="button"
-                className="btn btn-danger"
+                className="btn btn-light"
                 onClick={() => this.clearGrid()}
               >
                 Clear All
@@ -300,7 +284,7 @@ class Menubar extends Component {
             <li className="nav-item dropdown">
               <div className="dropdown">
                 <button
-                  className="btn btn-info dropdown-toggle"
+                  className="btn btn-light dropdown-toggle"
                   type="button"
                   id="dropdownMenu1"
                   data-toggle="dropdown"
@@ -309,6 +293,7 @@ class Menubar extends Component {
                 >
                   {this.state.speedState}
                 </button>
+
                 <div className="dropdown-menu" aria-labelledby="dropdownMenu1">
                   <button
                     className="dropdown-item btn-light"
@@ -320,9 +305,9 @@ class Menubar extends Component {
                   <button
                     className="dropdown-item btn-light"
                     type="button"
-                    onClick={() => this.changeSpeed("Medium")}
+                    onClick={() => this.changeSpeed("Normal")}
                   >
-                    Medium
+                    Normal
                   </button>
                   <button
                     className="dropdown-item btn-light"
@@ -341,3 +326,4 @@ class Menubar extends Component {
   }
 }
 export default Menubar;
+

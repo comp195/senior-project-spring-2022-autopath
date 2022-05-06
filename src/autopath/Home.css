@@ -1,7 +1,7 @@
 html body {
   background-color: black;
   background-image: url('../images/main-background.png');
-  background-size:cover;
+  background-size: cover;
 }
 
 .grid {
@@ -19,7 +19,6 @@ html body {
 .grid-visualizing {
   font-size: 0;
   pointer-events: none;
-
   position: absolute;
   left: 50%;
   margin-right: -50%;

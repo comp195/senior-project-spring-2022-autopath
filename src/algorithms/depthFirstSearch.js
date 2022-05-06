@@ -2,8 +2,8 @@
 // AutoPath
 // depthFirstSearch.js
 
-export function depthFirstSearch(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function depthFirstSearch(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let unvisitedNodes = [];
@@ -12,7 +12,7 @@ export function depthFirstSearch(grid, startNode, finishNode) {
   while (unvisitedNodes.length !== 0) {
     let closestNode = unvisitedNodes.shift();
     if (closestNode.isWall) continue;
-    if (closestNode === finishNode) return visitedNodesInOrder;
+    if (closestNode === endNode) return visitedNodesInOrder;
     visitedNodesInOrder.push(closestNode);
     closestNode.isVisited = true;
     let unvisitedNeighbours = getUnvisitedNeighbours(closestNode, grid);

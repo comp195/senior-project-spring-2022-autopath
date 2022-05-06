@@ -13,9 +13,9 @@ import {depthFirstSearch, getNodesInShortestPathOrderDFS} from "../algorithms/de
 import {dijkstra, getNodesInShortestPathOrderDijkstra} from "../algorithms/dijkstra";
 import {greedyBFS, getNodesInShortestPathOrderGreedyBFS} from "../algorithms/greedyBestFirstSearch";
 
-const initialNum = getInitialNum(window.innerWidth, window.innerHeight);
-const initialNumRows = initialNum[0];
-const initialNumColumns = initialNum[1];
+const initNum = getInitialNum(window.innerWidth, window.innerHeight);
+const initialNumRows = initNum[0];
+const initialNumColumns = initNum[1];
 const startFinishNode = getStartFinishNode(initialNumRows, initialNumColumns);
 const startNodeRow = startFinishNode[0];
 const startNodeCol = startFinishNode[1];
@@ -504,8 +504,7 @@ function getRandomNums(num) {
 
 function getStartFinishNode(numRows, numColumns) {
   let randomNums;
-  let x;
-  let y;
+  let x, y;
   let startNodeRow;
   let startNodeCol;
   let finishNodeRow;

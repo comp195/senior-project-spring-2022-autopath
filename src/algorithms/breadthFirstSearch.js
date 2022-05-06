@@ -2,8 +2,8 @@
 // AutoPath
 // breadthFirstSearch.js
 
-export function breadthFirstSearch(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function breadthFirstSearch(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let unvisitedNodes = [];
@@ -12,15 +12,13 @@ export function breadthFirstSearch(grid, startNode, finishNode) {
   while (unvisitedNodes.length !== 0) {
     let closestNode = unvisitedNodes.shift();
     if (closestNode.isWall) continue;
-    if (closestNode === finishNode) return visitedNodesInOrder;
+    if (closestNode === endNode) return visitedNodesInOrder;
     visitedNodesInOrder.push(closestNode);
     closestNode.isVisited = true;
     let unvisitedNeighbours = getUnvisitedNeighbours(closestNode, grid);
     for (let unvisitedNeighbour of unvisitedNeighbours) {
       unvisitedNeighbour.previousNode = closestNode;
-      if (neighbourNotInUnvisitedNodes(unvisitedNeighbour, unvisitedNodes)) {
-        unvisitedNodes.push(unvisitedNeighbour);
-      }
+      if (neighbourNotInUnvisitedNodes(unvisitedNeighbour, unvisitedNodes)) unvisitedNodes.push(unvisitedNeighbour);
     }
   }
   return visitedNodesInOrder;
@@ -38,9 +36,7 @@ function getUnvisitedNeighbours(node, grid) {
 
 function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
   for (let node of unvisitedNodes) {
-    if (node.row === neighbour.row && node.col === neighbour.col) {
-      return false;
-    }
+    if (node.row === neighbour.row && node.col === neighbour.col) return false;
   }
   return true;
 }

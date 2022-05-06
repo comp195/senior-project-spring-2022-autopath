@@ -3,14 +3,14 @@
 // horizontalMaze.js
 
 let walls;
-export function horizontalMaze(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function horizontalMaze(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let vertical = range(grid[0].length);
   let horizontal = range(grid.length);
   walls = [];
-  getHorizontalWalls(vertical, horizontal, startNode, finishNode);
+  getHorizontalWalls(vertical, horizontal, startNode, endNode);
   return walls;
 }
 

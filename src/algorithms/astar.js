@@ -2,10 +2,10 @@
 // AutoPath
 // astar.js
 
-export function astar(grid, startNode, finishNode) {
+export function astar(grid, startNode, endNode) {
 
   // return false if start node is same as the end node
-  if (!startNode || !finishNode || startNode === finishNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   
@@ -17,7 +17,7 @@ export function astar(grid, startNode, finishNode) {
   while (unvisitedNodes.length !== 0) {
     unvisitedNodes.sort((a, b) => a.totalDistance - b.totalDistance);
     let closestNode = unvisitedNodes.shift();
-    if (closestNode === finishNode) return visitedNodesInOrder;
+    if (closestNode === endNode) return visitedNodesInOrder;
 
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
@@ -32,14 +32,14 @@ export function astar(grid, startNode, finishNode) {
         unvisitedNodes.unshift(neighbour);
         neighbour.distance = distance;
         neighbour.totalDistance =
-          distance + manhattenDistance(neighbour, finishNode);
+          distance + manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
 
       } 
       
       else if (distance < neighbour.distance) {
         neighbour.distance = distance;
-        neighbour.totalDistance = distance + manhattenDistance(neighbour, finishNode);
+        neighbour.totalDistance = distance + manhattenDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
       }
     }

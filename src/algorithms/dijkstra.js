@@ -2,8 +2,8 @@
 // AutoPath
 // dijkstra.js
 
-export function dijkstra(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function dijkstra(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   startNode.distance = 0;
@@ -14,7 +14,7 @@ export function dijkstra(grid, startNode, finishNode) {
     let closestNode = unvisitedNodes.shift();
     if (closestNode.isWall) continue;
     if (closestNode.distance === Infinity) return visitedNodesInOrder;
-    if (closestNode === finishNode) return visitedNodesInOrder;
+    if (closestNode === endNode) return visitedNodesInOrder;
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
     updateUnvisitedNeighbours(closestNode, grid);

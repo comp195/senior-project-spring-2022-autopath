@@ -4,7 +4,7 @@
 }
 
 .navbar-brand {
-  margin-right: 35px;
+  margin-right: 14px;
 }
 
 .btn {
@@ -14,14 +14,14 @@
 
 .dropdown-menu {
   margin-right: 35px;
-  background-color: #000000;
+  background-color: #343a40;
 }
 
 .dropdown-item {
   color: white;
 }
 
-/*
+/* Modify button sizes depending on window size */
 @media (max-width: 1250px) {
   .navbar-brand {
     margin-right: 25px;
@@ -156,4 +156,8 @@
     background-color: #343a40;
   }
 }
-*/
+
+@font-face {
+  font-family: sf;
+  src: url(../Fonts/SFProDisplay-Light.ttf)
+}
