@@ -24,17 +24,18 @@ public class GridScript : MonoBehaviour
         grid_size_x = Mathf.RoundToInt(grid_Size.x / node_diameter);
         grid_size_y = Mathf.RoundToInt(grid_Size.y / node_diameter);
         StartCoroutine(coroutine());
+       
 
     }
 
     private IEnumerator coroutine()
     {
-        yield return new WaitForSeconds(15);
-	CreateGrid();
+        yield return new WaitForSeconds(10);
+        //CreateGrid();
         Debug.Log("doing maze");
         instansion();
-        
         Debug.Log("drawing line");
+        CreateGrid();
         
     }
  
@@ -115,7 +116,7 @@ public class GridScript : MonoBehaviour
                     {
                         Gizmos.color = Color.cyan;
                         GameObject instance = (GameObject) Instantiate(effect, n.world_position, Quaternion.identity);
-                        Destroy(instance, 1f );
+                        //Destroy(instance, 1f );
                     }
                 }
                 Gizmos.DrawWireCube(n.world_position, Vector3.one * (node_diameter - 0.1f));
@@ -131,7 +132,6 @@ public class GridScript : MonoBehaviour
             foreach (Node n in grid)
             {
                 
-
                 if (player_node == n)
                 {
                     
@@ -142,7 +142,7 @@ public class GridScript : MonoBehaviour
                     {
                         
                         GameObject instance = (GameObject)Instantiate(effect, n.world_position, Quaternion.identity);
-                        Destroy(instance, 1f);
+                        //Destroy(instance, 1f);
                     }
                 }
                 
