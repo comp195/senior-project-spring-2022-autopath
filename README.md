@@ -109,12 +109,12 @@ Get a local copy up and running follow these simple example steps.
    
 #### Live Website
 
-Check out the website here: [autopath](https://comp195.github.io/senior-project-spring-2022-autopath/)
+Check out the website here: [autopath](https://autopath.tigerenterprises.org/)
 <br><br>
 
 ### VR
 
-An executable file for the AutoPath VR will be available soon!
+An executable file for the VR: [autopath](https://github.com/comp195/senior-project-spring-2022-autopath/raw/master/VR/AutoPath.exe)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -166,8 +166,6 @@ Hung Le - h_le21@u.pacific.edu
 Lait Vaidya - l_vaidya@u.pacific.edu
 
 Project Link: [https://github.com/comp195/senior-project-spring-2022-autopath/](https://github.com/comp195/senior-project-spring-2022-autopath/)
-
-Web Application Link: [https://autopath.tigerenterprises.org/](https://autopath.tigerenterprises.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
