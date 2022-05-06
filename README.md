@@ -137,7 +137,7 @@ An executable file for the AutoPath VR will be available soon!
 - [x] VR - Design the virtual maze world
 - [x] VR - Enable the ability for the user to roam around and interact with the world
 - [x] VR - Random maze generation
-- [ ] VR - Enable pathfinding visualization for A*, Djikstra, BFS, and DFS
+- [x] VR - Enable pathfinding visualization for A*
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
