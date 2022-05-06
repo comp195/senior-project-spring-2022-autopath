@@ -124,10 +124,11 @@ An executable file for the VR: [autopath](https://github.com/comp195/senior-proj
 
 - [x] Web - Login & Registration
 - [x] Web - Create a 2D grid
-- [ ] Web - Make 2D grid expandable 
-- [x] Web - Add ability for users to add their own start and stop locations
-- [x] Web - Add ability for users to add their nodes and walls
-- [x] Web - Develop random maze generation
+- [x] Web - Add ability for users to add walls
+- [x] Web - Develop random maze generation using recursive division
+- [x] Web - Develop random maze generation using vertical division
+- [x] Web - Develop random maze generation using horizontal division
+- [x] Web - Develop random maze generation using random wall positions
 - [x] Web - Enable pathfinding visualization for Djikstra
 - [x] Web - Enable pathfinding visualization for A*
 - [x] Web - Enable pathfinding visualization for BFS
