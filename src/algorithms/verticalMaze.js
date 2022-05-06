@@ -4,9 +4,7 @@
 
 let walls;
 export function verticalMaze(grid, startNode, endNode) {
-  if (!startNode || !endNode || startNode === endNode) {
-    return false;
-  }
+  if (!startNode || !endNode || startNode === endNode) return false;
   let vertical = range(grid[0].length);
   let horizontal = range(grid.length);
   walls = [];
@@ -14,47 +12,32 @@ export function verticalMaze(grid, startNode, endNode) {
   return walls;
 }
 
-function range(len) {
-  let result = [];
-  for (let i = 0; i < len; i++) {
-    result.push(i);
-  }
-  return result;
-}
+function addWall(num, horizList, startNode, finishNode) {
+  let isGridStatusOn = false;
+  let wallList = [];
 
-function getVerticalWalls(vertical, horizontal, startNode, finishNode) {
-  if (vertical.length < 2) {
-    return;
-  }
-
-  let choice = Math.floor(Math.random() * 2);
-  for (let num of vertical) {
-    if (choice === 0 && num % 2 !== 0) {
-      addWall(num, horizontal, startNode, finishNode);
-    }
-    if (choice === 1 && num % 2 === 0) {
-      addWall(num, horizontal, startNode, finishNode);
-    }
-  }
-}
-
-function addWall(num, horizontal, startNode, finishNode) {
-  let isStartFinish = false;
-  let tempWalls = [];
-  for (let temp of horizontal) {
-    if (
-      (temp === startNode.row && num === startNode.col) ||
-      (temp === finishNode.row && num === finishNode.col)
-    ) {
-      isStartFinish = true;
+  for (let horizRow of horizList) {
+    if ((horizRow === startNode.row && num === startNode.col) || (horizRow === finishNode.row && num === finishNode.col)) {
+      isGridStatusOn = true;
       continue;
     }
-    tempWalls.push([temp, num]);
+    wallList.push([horizRow, num]);
   }
-  if (!isStartFinish) {
-    tempWalls.splice(Math.floor(Math.random() * tempWalls.length), 1);
+  if (!isGridStatusOn)  wallList.splice(Math.floor(Math.random() * wallList.length), 1);
+  for (let wall of wallList)  walls.push(wall);
+}
+
+function getVerticalWalls(vertList, horizontal, startNode, finishNode) {
+  if (vertList.length < 2)   return;
+  let choice = Math.floor(Math.random() * 2);
+  for (let num of vertList) {
+    if (choice === 0 && num % 2 !== 0)  addWall(num, horizontal, startNode, finishNode);
+    if (choice === 1 && num % 2 === 0) addWall(num, horizontal, startNode, finishNode);
   }
-  for (let wall of tempWalls) {
-    walls.push(wall);
-  }
+}
+
+function range(max) {
+  let result = [];
+  for (let i = 0; i < max; i++) result.push(i);
+  return result;
 }

@@ -22,24 +22,24 @@ export function astar(grid, startNode, endNode) {
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
 
-    let neighbours = getNeighbours(closestNode, grid);
+    let neighbours = getNeighbors(closestNode, grid);
     for (let neighbour of neighbours) {
 
       let distance = closestNode.distance + 1;
 
-      if (neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes)) {
+      if (neighborNotInUnvisitedNodes(neighbour, unvisitedNodes)) {
 
         unvisitedNodes.unshift(neighbour);
         neighbour.distance = distance;
         neighbour.totalDistance =
-          distance + manhattenDistance(neighbour, endNode);
+          distance + getDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
 
       } 
       
       else if (distance < neighbour.distance) {
         neighbour.distance = distance;
-        neighbour.totalDistance = distance + manhattenDistance(neighbour, endNode);
+        neighbour.totalDistance = distance + getDistance(neighbour, endNode);
         neighbour.previousNode = closestNode;
       }
     }
@@ -47,7 +47,14 @@ export function astar(grid, startNode, endNode) {
   return visitedNodesInOrder;
 }
 
-function getNeighbours(node, grid) {
+// Return distance
+function getDistance(node, nodeTwo) {
+  return Math.abs(node.row - nodeTwo.row) + Math.abs(node.col - nodeTwo.col);
+}
+
+
+// Return neighbors
+function getNeighbors(node, grid) {
   let neighbours = [];
   let { row, col } = node;
   if (col !== grid[0].length - 1) neighbours.push(grid[row][col + 1]);
@@ -59,7 +66,8 @@ function getNeighbours(node, grid) {
   );
 }
 
-function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
+// Return neighbors not in unvisited nodes
+function neighborNotInUnvisitedNodes(neighbour, unvisitedNodes) {
   for (let node of unvisitedNodes) {
     if (node.row === neighbour.row && node.col === neighbour.col) {
       return false;
@@ -68,15 +76,8 @@ function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
   return true;
 }
 
-// Return manhatten distance
-function manhattenDistance(node, finishNode) {
-  let x = Math.abs(node.row - finishNode.row);
-  let y = Math.abs(node.col - finishNode.col);
-  return x + y;
-}
-
 // Return list containing nodes in shortest path order for A star
-export function getNodesInShortestPathOrderAstar(finishNode) {
+export function getNodesInShortestPathOrder(finishNode) {
   let nodesInShortestPathOrder = [];
   let currentNode = finishNode;
   while (currentNode !== null) {
@@ -85,3 +86,6 @@ export function getNodesInShortestPathOrderAstar(finishNode) {
   }
   return nodesInShortestPathOrder;
 }
+
+
+

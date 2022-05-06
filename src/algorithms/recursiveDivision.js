@@ -3,100 +3,16 @@
 // recursiveDivision.js
 
 let walls;
-export function recursiveDivisionMaze(grid, startNode, finishNode) {
-  if (!startNode || !finishNode || startNode === finishNode) {
+export function recursiveDivisionMaze(grid, startNode, endNode) {
+  if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
   let vertical = range(grid[0].length);
   let horizontal = range(grid.length);
   walls = [];
-  getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode);
+  getRecursiveWalls(vertical, horizontal, grid, startNode, endNode);
   return walls;
 }
-
-function range(len) {
-  let result = [];
-  for (let i = 0; i < len; i++) {
-    result.push(i);
-  }
-  return result;
-}
-
-//dir === 0 => Horizontal
-//dir === 1 => Vertical
-
-function getRecursiveWalls(vertical, horizontal, grid, startNode, finishNode) {
-  if (vertical.length < 2 || horizontal.length < 2) {
-    return;
-  }
-  let dir;
-  let num;
-  if (vertical.length > horizontal.length) {
-    dir = 0;
-    num = generateOddRandomNumber(vertical);
-  }
-  if (vertical.length <= horizontal.length) {
-    dir = 1;
-    num = generateOddRandomNumber(horizontal);
-  }
-
-  if (dir === 0) {
-    addWall(dir, num, vertical, horizontal, startNode, finishNode);
-
-    getRecursiveWalls(
-      vertical.slice(0, vertical.indexOf(num)),
-      horizontal,
-      grid,
-      startNode,
-      finishNode
-    );
-
-    getRecursiveWalls(
-      vertical.slice(vertical.indexOf(num) + 1),
-      horizontal,
-      grid,
-      startNode,
-      finishNode
-    );
-  } 
-  
-  else {
-    addWall(dir, num, vertical, horizontal, startNode, finishNode);
-    getRecursiveWalls(
-      vertical,
-      horizontal.slice(0, horizontal.indexOf(num)),
-      grid,
-      startNode,
-      finishNode
-    );
-
-    getRecursiveWalls(
-      vertical,
-      horizontal.slice(horizontal.indexOf(num) + 1),
-      grid,
-      startNode,
-      finishNode
-    );
-  }
-}
-
-function generateOddRandomNumber(array) {
-  let max = array.length - 1;
-  let randomNum =
-    Math.floor(Math.random() * (max / 2)) +
-    Math.floor(Math.random() * (max / 2));
-  if (randomNum % 2 === 0) {
-    if (randomNum === max) {
-      randomNum -= 1;
-    } else {
-      randomNum += 1;
-    }
-  }
-  return array[randomNum];
-}
-
-//dir === 0 => Horizontal
-//dir === 1 => Vertical
 
 function addWall(dir, num, vertical, horizontal, startNode, endNode) {
   let isStartFinish = false;
@@ -132,6 +48,84 @@ function addWall(dir, num, vertical, horizontal, startNode, endNode) {
   for (let wall of tempWalls) {
     walls.push(wall);
   }
+}
+
+function range(max) {
+  let result = [];
+  for (let i = 0; i < max; i++) {
+    result.push(i);
+  }
+  return result;
+}
+
+function getRecursiveWalls(vertical, horizontal, grid, startNode, endNode) {
+  if (vertical.length < 2 || horizontal.length < 2) {
+    return;
+  }
+  let dir;
+  let num;
+  if (vertical.length > horizontal.length) {
+    dir = 0;
+    num = generateOddRandomNumber(vertical);
+  }
+  if (vertical.length <= horizontal.length) {
+    dir = 1;
+    num = generateOddRandomNumber(horizontal);
+  }
+
+  if (dir === 0) {
+    addWall(dir, num, vertical, horizontal, startNode, endNode);
+
+    getRecursiveWalls(
+      vertical.slice(0, vertical.indexOf(num)),
+      horizontal,
+      grid,
+      startNode,
+      endNode
+    );
+
+    getRecursiveWalls(
+      vertical.slice(vertical.indexOf(num) + 1),
+      horizontal,
+      grid,
+      startNode,
+      endNode
+    );
+  } 
+  
+  else {
+    addWall(dir, num, vertical, horizontal, startNode, endNode);
+    getRecursiveWalls(
+      vertical,
+      horizontal.slice(0, horizontal.indexOf(num)),
+      grid,
+      startNode,
+      endNode
+    );
+
+    getRecursiveWalls(
+      vertical,
+      horizontal.slice(horizontal.indexOf(num) + 1),
+      grid,
+      startNode,
+      endNode
+    );
+  }
+}
+
+function generateOddRandomNumber(array) {
+  let max = array.length - 1;
+  let randomNum =
+    Math.floor(Math.random() * (max / 2)) +
+    Math.floor(Math.random() * (max / 2));
+  if (randomNum % 2 === 0) {
+    if (randomNum === max) {
+      randomNum -= 1;
+    } else {
+      randomNum += 1;
+    }
+  }
+  return array[randomNum];
 }
 
 function generateRandomNumber(max) {

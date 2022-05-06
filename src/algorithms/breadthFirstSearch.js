@@ -3,9 +3,7 @@
 // breadthFirstSearch.js
 
 export function breadthFirstSearch(grid, startNode, endNode) {
-  if (!startNode || !endNode || startNode === endNode) {
-    return false;
-  }
+  if (!startNode || !endNode || startNode === endNode)  return false;
   let unvisitedNodes = [];
   let visitedNodesInOrder = [];
   unvisitedNodes.push(startNode);
@@ -15,16 +13,23 @@ export function breadthFirstSearch(grid, startNode, endNode) {
     if (closestNode === endNode) return visitedNodesInOrder;
     visitedNodesInOrder.push(closestNode);
     closestNode.isVisited = true;
-    let unvisitedNeighbours = getUnvisitedNeighbours(closestNode, grid);
-    for (let unvisitedNeighbour of unvisitedNeighbours) {
+    let unvisitedNeighbors = getUnvisitedNeighbors(closestNode, grid);
+    for (let unvisitedNeighbour of unvisitedNeighbors) {
       unvisitedNeighbour.previousNode = closestNode;
-      if (neighbourNotInUnvisitedNodes(unvisitedNeighbour, unvisitedNodes)) unvisitedNodes.push(unvisitedNeighbour);
+      if (neighborNotInUnvisitedNodes(unvisitedNeighbour, unvisitedNodes)) unvisitedNodes.push(unvisitedNeighbour);
     }
   }
   return visitedNodesInOrder;
 }
 
-function getUnvisitedNeighbours(node, grid) {
+function neighborNotInUnvisitedNodes(neighbor, unvisitedNodes) {
+  for (let node of unvisitedNodes) {
+    if (node.row === neighbor.row && node.col === neighbor.col) return false;
+  }
+  return true;
+}
+
+function getUnvisitedNeighbors(node, grid) {
   let neighbours = [];
   let { row, col } = node;
   if (row !== 0) neighbours.push(grid[row - 1][col]);
@@ -32,13 +37,6 @@ function getUnvisitedNeighbours(node, grid) {
   if (row !== grid.length - 1) neighbours.push(grid[row + 1][col]);
   if (col !== 0) neighbours.push(grid[row][col - 1]);
   return neighbours.filter((neighbour) => !neighbour.isVisited);
-}
-
-function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
-  for (let node of unvisitedNodes) {
-    if (node.row === neighbour.row && node.col === neighbour.col) return false;
-  }
-  return true;
 }
 
 export function getNodesInShortestPathOrderBFS(finishNode) {

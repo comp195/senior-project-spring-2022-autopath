@@ -19,48 +19,46 @@ export function greedyBFS(grid, startNode, endNode) {
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
 
-    let neighbours = getNeighbours(closestNode, grid);
-    for (let neighbour of neighbours) {
+    let neighbors = getNeighbors(closestNode, grid);
+    for (let neighbor of neighbors) {
       let distance = closestNode.distance + 1;
-      if (neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes)) {
-        unvisitedNodes.unshift(neighbour);
-        neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
-        neighbour.previousNode = closestNode;
-      } else if (distance < neighbour.distance) {
-        neighbour.distance = distance;
-        neighbour.totalDistance = manhattenDistance(neighbour, endNode);
-        neighbour.previousNode = closestNode;
+      if (neighborNotInUnvisitedNodes(neighbor, unvisitedNodes)) {
+        unvisitedNodes.unshift(neighbor);
+        neighbor.distance = distance;
+        neighbor.totalDistance = getDistance(neighbor, endNode);
+        neighbor.previousNode = closestNode;
+      } else if (distance < neighbor.distance) {
+        neighbor.distance = distance;
+        neighbor.totalDistance = getDistance(neighbor, endNode);
+        neighbor.previousNode = closestNode;
       }
     }
   }
   return visitedNodesInOrder;
 }
 
-function getNeighbours(node, grid) {
-  let neighbours = [];
+function getDistance(node, nodeTwo) {
+  return Math.abs(node.row - nodeTwo.row) + Math.abs(node.col - nodeTwo.col);
+}
+
+function getNeighbors(node, grid) {
+  let neighbors = [];
   let {
     row,
     col
   } = node;
-  if (row !== 0) neighbours.push(grid[row - 1][col]);
-  if (col !== grid[0].length - 1) neighbours.push(grid[row][col + 1]);
-  if (row !== grid.length - 1) neighbours.push(grid[row + 1][col]);
-  if (col !== 0) neighbours.push(grid[row][col - 1]);
-  return neighbours.filter(
-    (neighbour) => !neighbour.isWall && !neighbour.isVisited
+  if (row !== 0) neighbors.push(grid[row - 1][col]);
+  if (col !== grid[0].length - 1) neighbors.push(grid[row][col + 1]);
+  if (row !== grid.length - 1) neighbors.push(grid[row + 1][col]);
+  if (col !== 0) neighbors.push(grid[row][col - 1]);
+  return neighbors.filter(
+    (neighbor) => !neighbor.isWall && !neighbor.isVisited
   );
 }
 
-function manhattenDistance(node, finishNode) {
-  let x = Math.abs(node.row - finishNode.row);
-  let y = Math.abs(node.col - finishNode.col);
-  return x + y;
-}
-
-function neighbourNotInUnvisitedNodes(neighbour, unvisitedNodes) {
+function neighborNotInUnvisitedNodes(neighbor, unvisitedNodes) {
   for (let node of unvisitedNodes) {
-    if (node.row === neighbour.row && node.col === neighbour.col) {
+    if (node.row === neighbor.row && node.col === neighbor.col) {
       return false;
     }
   }

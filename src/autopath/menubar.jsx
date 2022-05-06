@@ -11,84 +11,14 @@ class Menubar extends Component {
     speedState: "Speed",
   };
 
-  selectAlgorithm(selection) {
-    if (this.props.visualizingAlgorithm) {
-      return;
-    }
-    if (selection === this.state.algorithm || this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") 
-    {
-      this.setState({ algorithm: selection });
-    } 
-    
-    else if (this.state.pathState) {
-      this.clearPath();
-      this.setState({ algorithm: selection });
-    } 
-    
-    else {
-      this.setState({ algorithm: selection });
-    }
-  }
-
-  selectMaze(selection) {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
-    if (
-      selection === this.state.maze ||
-      this.state.maze === "Generate Maze" ||
-      this.state.maze === "Select a Maze!"
-    ) {
-      this.setState({ maze: selection });
-    } else if (!this.state.mazeState) {
-      this.setState({ maze: selection });
-    } else {
-      this.clearGrid();
-      this.setState({ maze: selection });
-    }
-  }
-
-  visualizeAlgorithm() {
-    if (this.props.visualizingAlgorithm || this.props.generatingMaze) {
-      return;
-    }
-    if (this.state.pathState) {
-      this.clearTemp();
-      return;
-    }
-    if (
-      this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") {
-      this.setState({ algorithm: "Select an Algorithm!" });
-    } 
-    
-    else {
-      this.setState({ pathState: true });
-      if (this.state.algorithm === "Visualize Dijkstra")
-        this.props.visualizeDijkstra();
-      else if (this.state.algorithm === "Visualize A*")
-        this.props.visualizeAStar();
-      else if (this.state.algorithm === "Visualize Greedy BFS")
-        this.props.visualizeGreedyBFS();
-      else if (this.state.algorithm === "Visualize Bidirectional Greedy")
-        this.props.visualizeBidirectionalGreedySearch();
-      else if (this.state.algorithm === "Visualize Breadth First Search")
-        this.props.visualizeBFS();
-      else if (this.state.algorithm === "Visualize Depth First Search")
-        this.props.visualizeDFS();
-    }
-  }
-
-  generateMaze() {
+  changeSpeed(speed) {
     if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
-    if (this.state.mazeState || this.state.pathState) this.clearTemp();
-    if (this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") this.setState({ maze: "Select a Maze!" });
-    else {
-      this.setState({ mazeState: true });
-      if (this.state.maze === "Generate Horizontal Maze") this.props.generateHorizontalMaze();
-      else if (this.state.maze === "Generate Vertical Maze") this.props.generateVerticalMaze();
-      else if (this.state.maze === "Generate Recursive Maze") this.props.generateRecursiveDivisionMaze();
-      else if (this.state.maze === "Generate Random Maze") this.props.generateRandomMaze();
-    }
+    let value = [10, 10];
+    if (speed === "Slow") value = [50, 30];
+    else if (speed === "Normal") value = [25, 20];
+    else if (speed === "Fast") value = [10, 10];
+    this.setState({ speedState: speed });
+    this.props.updateSpeed(value[0], value[1]);
   }
 
   clearGrid() {
@@ -120,14 +50,78 @@ class Menubar extends Component {
     });
   }
 
-  changeSpeed(speed) {
+  generateMaze() {
     if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
-    let value = [10, 10];
-    if (speed === "Slow") value = [50, 30];
-    else if (speed === "Normal") value = [25, 20];
-    else if (speed === "Fast") value = [10, 10];
-    this.setState({ speedState: speed });
-    this.props.updateSpeed(value[0], value[1]);
+    if (this.state.mazeState || this.state.pathState) this.clearTemp();
+    if (this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") this.setState({ maze: "Select a Maze!" });
+    else {
+      this.setState({ mazeState: true });
+      if (this.state.maze === "Generate Horizontal Maze") this.props.generateHorizontalMaze();
+      else if (this.state.maze === "Generate Vertical Maze") this.props.generateVerticalMaze();
+      else if (this.state.maze === "Generate Recursive Maze") this.props.generateRecursiveDivisionMaze();
+      else if (this.state.maze === "Generate Random Maze") this.props.generateRandomMaze();
+    }
+  }
+
+  selectAlgorithm(userChoice) {
+    if (this.props.visualizingAlgorithm) {
+      return;
+    }
+    if (userChoice === this.state.algorithm || this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") 
+    {
+      this.setState({ algorithm: userChoice });
+    } 
+    
+    else if (this.state.pathState) {
+      this.clearPath();
+      this.setState({ algorithm: userChoice });
+    } 
+    
+    else {
+      this.setState({ algorithm: userChoice });
+    }
+  }
+
+  selectMaze(userChoice) {
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
+    if (userChoice === this.state.maze || this.state.maze === "Generate Maze" || this.state.maze === "Select a Maze!") {
+      this.setState({ maze: userChoice });
+    } 
+    else if (!this.state.mazeState) {
+      this.setState({ maze: userChoice });
+    } 
+    else {
+      this.clearGrid();
+      this.setState({ maze: userChoice });
+    }
+  }
+
+  visualizeAlgorithm() {
+    if (this.props.visualizingAlgorithm || this.props.generatingMaze) return;
+    if (this.state.pathState) {
+      this.clearTemp();
+      return;
+    }
+    if (
+      this.state.algorithm === "Visualize Algorithm" || this.state.algorithm === "Select an Algorithm!") {
+      this.setState({ algorithm: "Select an Algorithm!" });
+    } 
+    
+    else {
+      this.setState({ pathState: true });
+      if (this.state.algorithm === "Visualize Dijkstra")
+        this.props.visualizeDijkstra();
+      else if (this.state.algorithm === "Visualize A*")
+        this.props.visualizeAStar();
+      else if (this.state.algorithm === "Visualize Greedy BFS")
+        this.props.visualizeGreedyBFS();
+      else if (this.state.algorithm === "Visualize Bidirectional Greedy")
+        this.props.visualizeBidirectionalGreedySearch();
+      else if (this.state.algorithm === "Visualize Breadth First Search")
+        this.props.visualizeBFS();
+      else if (this.state.algorithm === "Visualize Depth First Search")
+        this.props.visualizeDFS();
+    }
   }
 
   render() {

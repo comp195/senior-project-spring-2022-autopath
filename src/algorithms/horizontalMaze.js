@@ -7,54 +7,41 @@ export function horizontalMaze(grid, startNode, endNode) {
   if (!startNode || !endNode || startNode === endNode) {
     return false;
   }
-  let vertical = range(grid[0].length);
-  let horizontal = range(grid.length);
+  let horizRange = range(grid.length);
+  let vertRange = range(grid[0].length);
   walls = [];
-  getHorizontalWalls(vertical, horizontal, startNode, endNode);
+  getHorizontalWalls(vertRange, horizRange, startNode, endNode);
   return walls;
 }
 
-function range(len) {
-  let result = [];
-  for (let i = 0; i < len; i++) {
-    result.push(i);
-  }
-  return result;
-}
+function addWall(num, vertList, startNode, endNode) {
+  let isGridStatusOn = false;
+  let wallList = [];
 
-function getHorizontalWalls(vertical, horizontal, startNode, finishNode) {
-  if (horizontal.length < 2) {
-    return;
-  }
-
-  let choice = Math.floor(Math.random() * 2);
-  for (let num of horizontal) {
-    if (choice === 0 && num % 2 !== 0) {
-      addWall(num, vertical, startNode, finishNode);
-    }
-    if (choice === 1 && num % 2 === 0) {
-      addWall(num, vertical, startNode, finishNode);
-    }
-  }
-}
-
-function addWall(num, vertical, startNode, finishNode) {
-  let isStartFinish = false;
-  let tempWalls = [];
-  for (let temp of vertical) {
-    if (
-      (num === startNode.row && temp === startNode.col) ||
-      (num === finishNode.row && temp === finishNode.col)
-    ) {
-      isStartFinish = true;
+  for (let vertCol of vertList) {
+    if ((num === startNode.row && vertCol === startNode.col) || (num === endNode.row && vertCol === endNode.col)) {
+      isGridStatusOn = true;
       continue;
     }
-    tempWalls.push([num, temp]);
+    wallList.push([num, vertCol]);
   }
-  if (!isStartFinish) {
-    tempWalls.splice(Math.floor(Math.random() * tempWalls.length), 1);
+
+  if (!isGridStatusOn) wallList.splice(Math.floor(Math.random() * wallList.length), 1);
+  for (let wall of wallList) walls.push(wall);
+}
+
+function getHorizontalWalls(vertList, horizList, startNode, endNode) {
+  if (horizList.length < 2) return;
+  
+  let randNum = Math.floor(Math.random() * 2);
+  for (let num of horizList) {
+    if (randNum === 0 && num % 2 !== 0) addWall(num, vertList, startNode, endNode);
+    if (randNum === 1 && num % 2 === 0) addWall(num, vertList, startNode, endNode);
   }
-  for (let wall of tempWalls) {
-    walls.push(wall);
-  }
+}
+
+function range(max) {
+  let result = [];
+  for (let i = 0; i < max; i++)  result.push(i);
+  return result;
 }
