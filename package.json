@@ -1,6 +1,6 @@
 {
   "name": "autopath",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://comp195.github.io/senior-project-spring-2022-autopath",
   "dependencies": {
