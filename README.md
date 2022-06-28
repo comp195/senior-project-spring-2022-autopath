@@ -109,7 +109,7 @@ Get a local copy up and running follow these simple example steps.
    
 #### Live Website
 
-Check out the website here: [autopath](https://autopath.tigerenterprises.org/)
+Check out the website here: [autopath](https://comp195.github.io/senior-project-spring-2022-autopath/)
 <br><br>
 
 ### VR
